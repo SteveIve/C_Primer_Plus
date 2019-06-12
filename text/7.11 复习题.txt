@@ -1,0 +1,326 @@
+1. 判断下列表达式是true还是false。
+	a. 100 > 3 && 'a'>'c'
+	b. 100 > 3 || 'a'>'c'
+	c. !(100>3)
+	
+	a. false
+	b. true
+	c. false
+
+2. 根据下列描述的条件，分别构造一个表达式：
+	a. number 等于或大于90，但是小于100
+	b. ch不是字符q或k
+	c. number在1~9之间（包括1和9)，但不是5
+	d. number不在1~9之间
+
+	a. (number >= 90) && (number < 100)
+	b. !(ch == 'q') && !(ch == 'k')
+	c. (num >= 1) && (num <= 9) && (num != 5)
+	d. ( num <1) && (num > 9)
+
+答案：d. num < 1 || num > 9
+
+
+3. 下面的程序关系表达式过于复杂，而且还有些错误，请简化并改正。
+#include <stdio.h>
+int main(void)
+{
+	int weight, height;				//weight以磅为单位，height以英寸为单位
+	scanf("%d ， weight， height);
+	if (weight <100 && height > 64)
+		if (height >= 72)
+			printf("You are very tall for your weight.\n");
+		else if (height <72 && >64)
+			printf("You are tall for your weight.\n");
+		else if (weight > 300 && !(weight <=300) && height <48)
+		if (!(height >= 48))
+			printf(" You are quit short for your weight.\n");
+	else
+		printf("Your weight is ideal.\n");
+
+	return 0;
+}
+
+scanf("%d , weight, height); 处应为 scanf("%d %d", &weight, &height);
+else if (height <72 && >64) 处应为 else if (height < 72 && height > 64)
+else if (weight > 300 && !(weight <= 300) && height <48) if (!(height >= 48)) 可改为 else if (weight >300 && height < 48)
+else printf("Your weight is ideal.\n") 语义可能产生错误。
+
+答案：
+#include <stdio.h>
+int main(void)
+{
+	int weight, height;
+	
+	printf("Enter your weight in pounds and your height in inches.\n");
+	scanf("%d %d", &weight, %height);
+	if (weight < 100 && height > 64)
+		if ( height >= 72)
+			printf("You are very tall for your weight.\n");
+		else
+			printf("You are tall for your weight.\n");
+	else if ( weight > 300 && height < 48)
+		printf("You are quite short for your weight.\n");
+	else printf("Your weight is ideal.\n");
+	
+	return 0;
+}
+
+
+
+4. 下列各表达式的值各是多少？
+	a. 5>2
+	b. 3+4 >2 && 3<2
+	c. x >= y || y > x
+ 	d. d = 5 + (6 > 2)
+	e. 'x' > 'T' ? 10 : 5
+	f. x > y ? y > x : x > y
+
+	a. 1
+	b. 0
+	c. 1
+	d. d = 6
+	e. 5
+	f. 0
+
+答案：
+	e. 10。 因为测试条件为真。
+
+5. 下面的程序将打印什么？
+#include <stdio.h>
+int mian(void)
+{
+	int num;
+	for ( num = 1; num <= 11; num++)
+	{
+		if (num % 3 == 0)
+			put char('$');
+		else
+			purchar('*');
+			putchar('#');
+		putchar('%');
+	}
+	putchar('\n');
+	return 0;
+}
+
+打印：	*#%*#%$#%*#%*#%$#%*#%*#%$#%*#%*#%
+
+
+6. 下面的程序将打印什么？
+#include <stdio.h>
+int main(void)
+{
+	int i = 0;
+	while (i < 3) {
+		switch(i++) {
+			case 0: printf("fat ");
+			case 1: printf("hat ");
+			case 2: printf("cat ");
+			default: printf("Oh no!");
+		}
+		putchar('\n');
+	}
+	return 0;
+}
+
+打印：fat hat cat Oh no!hat cat Oh no!cat 
+答案：	fat hat cat Oh no!
+	hat cat Oh no!
+	cat Oh no!
+
+7. 下面的程序有哪些错误？
+#include <stdio.h>
+int main(void)
+{
+	char ch;
+	int lc = 0;		/*统计小写字母
+	int uc = 0;	/*统计大写字母
+	int oc = 0;	/*统计其他字母
+	
+	while ( (ch = getchar()) != '#')
+	{
+		if（'a' <= ch >= 'z')
+			lc++;
+		else if (!(ch < 'A') || ! (ch > 'Z')
+			uc++;
+		oc++;
+	}
+	printf(%d lowercase, %d uppercase, %d other, lc, uc, oc);
+	return 0;
+}
+
+
+if ('a' <= ch >= 'z') 应改为 if (ch>= 'a' && ch<= 'z')
+else if ( !( ch< 'A') || ! (ch > 'Z') 应改为 else if (ch>= 'A' && ch <= 'Z')
+printf(%d lowercase, %d uppercase, %d other, lc, uc ,oc); 应改为 printf("%d lowercase, %d uppercase, %d other.\n", lc, uc, oc);
+
+答案：
+#include <stdio.h>
+#include <ctype.h>
+int main(void)
+{
+	char ch;
+	int lc = 0;
+	int uc = 0;
+	int oc = 0;
+	
+	while ( (ch = getchar()) != '#')
+	{
+		if (islower(ch))
+			lc++;
+		else if (isupper(ch))
+			uc++;
+		else
+			oc++;
+	}
+	printf(" %d lowercase, %d uppercase, %d other", lc, uc, oc);
+	return 0;
+}
+
+
+8. 下面的程序将打印什么？
+/* retire.c */
+#include <stdio.h>
+int main(void)
+{
+	int age = 20;
+	while (age++ <= 65)
+	{
+		if ( (age % 20) == 0)	/* age 是否能被20整除？ */
+			printf("You are %d. Here is a raise.\n", age);
+		if ( age = 65)
+			printf("You are %d. Here is your gold watch.\n", age);
+	}
+	return 0;
+}
+
+(将会报错， if (age = 65) 应改为 if (age == 65))
+You are 20. Here is a raise.
+You are 30. Here is a raise. 
+You are 40. Here is a raise. 
+You are 50. Here is a raise. 
+You are 60. Here is a raise. 
+You are 65. Here is your gold watch.
+
+答案：
+该程序将不停重复打印下面一行：
+You are 65. Here is your gold watch.
+问题处于在这一行：if (age = 65)
+这行代码把age设置为65，使得每次迭代的测试条件都为真。
+
+
+
+9. 给定下面的输入时，以下程序将打印什么？
+q
+c
+h
+b
+#include <stdio.h>
+int main(void)
+{
+	char ch;
+	
+	while ( ( ch = getchar()) != '#')
+	{
+		if (ch == '\n')
+			continue;	
+		printf("Step 1\n");
+		if ( ch == 'c')
+			continue;
+		else if ( ch == 'b')
+			break;
+		else if ( ch == 'h')
+			goto laststep;
+		printf("Step 2\n");
+	laststep: printf("Step 3\n");
+	}
+	printf("Done\n");
+	return 0;
+}
+
+打印：	Step 1
+	Step 2
+	Step 1
+	Step 1 
+	Step 3
+	Step 1
+	Done
+
+答案：
+	q
+	Step 1
+	Step 2
+	Step 3
+	c
+	Step 1
+	h
+	Step 1
+	Step 3
+	b
+	Step 1
+	Done
+
+
+10. 重写复习题9， 但这次不能使用continue和goto语句。
+#include <stdio.h>
+int main(void)
+{
+	char ch;
+	
+	while ( (ch = getchar() ) != '#')
+	{
+		if (ch == 'n')
+			;
+		printf("Step 1\n");
+		if (ch == 'c')
+			;
+		else if (ch == 'b')
+			break;
+		else if (ch == 'h')
+			pirntf("Step 3\n");
+		printf("Step 2\n");
+	}
+	printf("Done\n");
+	return 0;
+}
+
+答案：
+#include <stdio.h>
+int main(void)
+{
+	char ch;
+	while ( (ch = getchar() ) != '#')
+	{
+		if (ch != '\n')
+		{
+			printf("Step 1\n");
+			if (ch == 'b')
+				break;
+			else if ( ch != 'c')
+			{
+				if ( ch != 'h')
+					printf("Step 2\n");
+				printf("Step 3\n");
+			}
+		}
+	}
+	printf("Done\n");
+	return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

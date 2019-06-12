@@ -1,0 +1,126 @@
+1. C 语言的基本模块是什么？
+	不知道
+	答案：它们都叫作函数。
+
+
+2. 什么是语法错误？写出一个英语例子和一个C语言例子。
+	英语例子：I are an man.	C语言例子：int main<void>
+	答案：语法错误违反了组成语句或程序的规则。这是一个有语法错误的英文例子：Me speak English good.    这是一个有语法错误的C语言例子：printf"Where are the paentheses?";
+
+
+3. 什么是语义错误？写出一个英语例子和一个Ｃ语言例子。
+	英语例子：5 is the sqare of 2. 		C语言例子：int num = 2;  num + num = 4
+	答案：语义错误是指含义错误。这是一个有语义错误的英文例子：This sentence is excellent Czech.    这是一个有语义错误的C语言例子：thrice_n = 3 + n;2
+
+
+4. Indiana Sloth编写了下面的程序，并征求你的意见。请帮助他评定。
+	include studio.h
+	int main{void}/*该程序打印一年有多少周/*
+	(
+		int s 
+
+		s := 56;
+		print(There are s weeks in a year.);
+		return 0;
+
+
+	应改为：
+	#include <stdio.h>
+	int main(void) /*该程序打印一年有多少周*/
+	{
+		int s;
+
+		s = 52;
+		printf("There are %d weeks in a year.\n", s);
+		return 0;
+	}
+	答案：略。
+
+
+5. 假设下面的4个例子都是完整程序中的一部分，它们都输出什么结果？
+	a. printf("Baa Baa Black Sheep.");
+	    printf("Have you any wool?\n");
+	b. printf("Begone!\n0 creature of lard!\n");
+	c. printf("What?\n No/nfish?\n");
+	d. int num;
+	    num = 2;
+	    printf("%d +%d = %d", num,num,num+num);
+
+	a输出：Baa Baa Black Sheep.Have you any wool?
+	b输出：Begone!
+	            0 creature of lard!
+	c输出：What?
+	           No/nfish?
+	d输出：2 + 2 = 4
+	答案：略。
+
+
+6. 在main、int、function、char、=中，哪些是C语言关键字？
+	main    int    char   
+	答案：关键字是int 和 char （main是一个函数名；function是函数的意思；=是一个运算符）
+ 
+
+7. 如何以下面的格式输出变量words和lines的值（这里，3020和350代表两个变量的值）？
+	There were 3020 words and 350 lines.
+
+	printf("There were %d words and %d lines.\n", words, lines);
+	答案：略。
+
+
+8. 考虑下面的程序：
+	#include <stdio.h>
+	int main(void)
+	{
+		int a, b;
+		
+		a = 5;
+		b = 2;	/*第7行*/
+		b = a;	/*第8行*/
+		a = b;	/*第9行*/
+		printf("%d %d \n", b, a );
+		return 0;
+	}
+	请问，在执行完第7、第8、第9行后，程序的状态分别是什么？
+
+	7: a = 5; b = 2;
+	8: a = 5; b = 5;
+	9: a = 5; b = 5;
+	答案：略。
+
+
+9. 考虑下面的程序：
+	#include <stdio.h>
+	int main(void)
+	{
+		int x, y;
+		
+		x = 10;
+		y = 5;	/*第7行*/
+		y = x + y;		/*第8行*/
+		x = x*y;	/*第9行*/
+		printf("%d %d\n", x, y);
+		return 0;
+	}
+	请问，在执行完第7、第8、第9行后，程序的状态分别是什么？
+
+	7: x = 10; y = 5;
+	8: x = 10; y = 15;
+	9: x = 150; y = 15;
+	答案：略。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
