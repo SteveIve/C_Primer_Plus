@@ -89,7 +89,10 @@
 
     输出如下：
     color in main() is B
-    color in first() is 
+    color in first() is R
+    color in main() is B            //first函数中color的定义没用extern关键字，可能会创建一个新的变量
+    color in second() is G
+    color in main() is G
     
 9. 假设文件的开始处有如下声明：
     static int plink;
