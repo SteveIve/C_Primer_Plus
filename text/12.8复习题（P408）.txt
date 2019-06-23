@@ -81,6 +81,13 @@
     文件2中，static内部链接类型的lily仅文件2中可见，与main函数中的lily变量虽然名称相同，但是不是同一个变量。
     rose对所有函数都可见。
 
+    答案：
+    默认情况下，daisy只对main()可见，以extern声明的daisy才对petal(), stem()和root()可见。
+    文件2中的extern int daisy;声明使得daisy对文件2中的所有函数可见。
+    第1个lily是main()的局部变量。petal()中引用的lily是错的，因为两个文件中都没有外部链接的lily。
+    虽然文件2中有一个静态的lily，但它指对文件2可见。
+    第1个外部rose对root()可见，但是stem()中的局部rose覆盖了外部的rose。
+
 8. 下面的程序会打印什么？
     #include <stdio.h>
     char color = 'B';
