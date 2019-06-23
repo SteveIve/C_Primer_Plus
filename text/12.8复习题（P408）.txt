@@ -13,10 +13,16 @@
 5. extern关键字有什么用途？
     在函数外定义，可以声明变量在另一个文件内已定义，此处只是引用是声明。
     在函数内使用extern关键词显式地表明此变量为文件作用域变量。
-    
+
+
 6. 考虑下面两行代码，就输出的结果而言有何异同？
     int * p1 = (int *) malloc(100 * sizeof(int));
-    int * p1 = (int *) calloc(100, size(of));
+    int * p2 = (int *) calloc(100, sizeof(int));
+
+    p1指向一片连续的内存的第一个地址，该内存总共占用100个int类型大小。
+    p2指向一百个单位的内存的第一个地址，每个单位占用1个int类型大小。
+
+
 7. 下面的变量对哪些函数可见？程序是否有误？
     /*文件1*/
     int daisy;
@@ -44,6 +50,10 @@
     {
         ...;
     }
+
+    文件1中，daisy对所有函数都可见，lily仅main函数内可见。petal函数中引用式声明的lily并不对其可见。
+    文件2中，static内部链接类型的lily仅文件2中可见，与main函数中的lily变量虽然名称相同，但是不是同一个变量。
+    rose对所有函数都可见。
 
 8. 下面的程序会打印什么？
     #include <stdio.h>
@@ -77,6 +87,10 @@
         printf("color in second() is %c\n", color);
     }
 
+    输出如下：
+    color in main() is B
+    color in first() is 
+    
 9. 假设文件的开始处有如下声明：
     static int plink;
     int value_ct(const int arr[], int value, int n);
