@@ -126,6 +126,9 @@
     color in main() is B            //first函数中color的定义没用extern关键字，可能会创建一个新的变量
     color in second() is G
     color in main() is G
+
+    答案：略。
+    first()函数没有使用color变量，second使用了。
     
 9. 假设文件的开始处有如下声明：
     static int plink;
@@ -137,3 +140,5 @@
     a. static int plink 表明变量plink具有内部链接性质。
        value_ct的函数原型表明value_ct函数不会修改作为参数传入的数组。
     b. 不一定，比如我这种菜鸡就喜欢用函数传入的参数作为循环的变量..可能不能起到什么保护作用。
+
+    
