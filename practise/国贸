@@ -282,5 +282,7 @@ The main process of Less than container load:
     1. The goods instead of container will be delivered from the sellers' factory/
         warehouse to the container freight station. 
     2. The staff will put the goods in the containers. 
-    3. The containers will be delivered to the container freight station 
-    
+    3. The containers will be delivered to the container freight station in the 
+        port of destination.
+    4. The staff will put the goods out of the containers. 
+    In this process, the containers will be opened twice. 
