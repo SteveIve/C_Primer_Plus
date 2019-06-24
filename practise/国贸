@@ -230,6 +230,17 @@ Bill of Lading is the most important shipping documents, it has 3 functions:
         the goods from the shipping company. It can also transferred to the third party
     3. evidence of contract of shipment. It can be used to confirm the obligations,
         responsibilities, duties and rights for both parties. 
-Classification of Bill of Lading:
-    
+Classification of Bill of Lading (4 groups):
+    Group 1:
+        1. shipped B/L:
+            It will be issued when the goods were loaded on board/shipped. It will
+            contain some information about shipment such as shipment date and 
+            covering vessels. 
+        2. received B/L:
+            The goods did not load on board. The received B/L did not include the 
+            covering vessels and shipment date. At least it can prove the shipping
+            company has received the goods. 
+    Group 2:
+        1. straight B/L:
+            
     
