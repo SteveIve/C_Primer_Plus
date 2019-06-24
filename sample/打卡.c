@@ -17,3 +17,5 @@ void function(void)
 
 //function函数中的a变量是文件作用域变量a吗？
 //不是，function()中的变量a会覆盖文件作用域变量a
+
+6月24日图书馆摸鱼打卡
