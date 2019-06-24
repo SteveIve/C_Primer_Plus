@@ -242,5 +242,45 @@ Classification of Bill of Lading (4 groups):
             company has received the goods. 
     Group 2:
         1. straight B/L:
-            
+            It is only used by designed consignee. It cannot be transferred to a 
+            third party. The advantage is safe, the disadvantage is inflexible.
+        2. blank B/L:
+            It is can be used for anyone to take the goods without request of 
+            endorsement. It can be freely transferred to a third party. It is flexible 
+            but high risk.
+        3. order B/L:
+            It can be transferred to a third party, but the endorsement is required. 
+    Group 3:
+        1. clean B/L
+        2. unclean B/L:
+            The unclean B/L has the statement of defects of external packing of the 
+            goods. It is made by the shipping company to free shipping company 
+            from the possible compensation request from the seller. 
+    Group 4:
+        1. long form B/L:
+            The long form B/L has printed clauses of contract of shipment at the back
+            of the Bill of Lading. 
+        2. short form B/L:
+            It has not printed the clauses of contract at the back page. 
+
+Container transportation: It is widely used for almost every kind of transportaion. 
+    The advantages:
+        1. improving the loading/unloading efficience
+        2. improving the quality of transportation
+        3. reducing the cost of transportation. 
+        4. higher shipping space usage. 
+        5. simplifying the procedure of transportation. 
+The  main process of Full container load (FCL) transportation:
+    1. the containers will be delivered from teh sellers' factory/warehouse to the
+        container yard.
+    2. The containers will be delivered from the CY in the port of shipment to the
+        CY in the port of destination. 
+    3. The containers will be delivered to the buyers' factory/warehouse.
+    In this process, the containers will not be opened, because the goods in the 
+    containers are from the same seller. 
+The main process of Less than container load:
+    1. The goods instead of container will be delivered from the sellers' factory/
+        warehouse to the container freight station. 
+    2. The staff will put the goods in the containers. 
+    3. The containers will be delivered to the container freight station 
     
