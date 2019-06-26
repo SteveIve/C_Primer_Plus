@@ -18,6 +18,7 @@ int main(void)
 	}
 
     system("pause");
+    return 0;
 }
 
 void get_random_arr(int arr[], int n, int seed)
