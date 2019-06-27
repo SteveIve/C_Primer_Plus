@@ -64,3 +64,9 @@ void show_words(char* arr[], int n)
 		puts(arr[i]);
 	return;
 }
+
+// 很邪门的是
+// 在visual studio里面怎么运行都报错
+// visual studio code里面一次就运行成功
+// ？？？
+// 傻逼微软
