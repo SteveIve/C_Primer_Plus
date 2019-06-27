@@ -36,7 +36,8 @@ void answer_words(int num)
 	printf("Now enter the %d words:\n", num);
 	for (int i = 0; i < num; i++)
 	{
-		scanf("%s", temp);					//scanf可以将空白符视为'\0'.
+		scanf("%s", temp);				
+		//scanf可以将空白符视为'\0'.
 		words_array[i] = malloc((strlen(temp) + 1) * sizeof(char));
 		strcpy(words_array[i], temp);
 	}
