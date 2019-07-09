@@ -198,6 +198,47 @@ int main(int argc, char * argv[])
     return 0;
 }
 
+答案：
+下面是一种方案：
+#include <stdio.h>
+#include <stdlib.h>
+#define BUF 256
+int has_ch(char ch, const char * line);
+int main(int argc, char * argv[])
+{
+    FILE * fp;
+    char ch;
+    char line[BUF];
+
+    if (argc != 3)
+    {
+        printf("Usage: %s character filename\n", argv[0]);
+        exit(EXIT_FAILURE);
+    }
+    ch = argv[1][0];            //我这里写错了，我写成了*argv[1]，一个指针
+    if ((fp = fopen(argv[2], "r")) == NULL)
+    {
+        printf("Can't open %s\n", argv[2]);
+        exit(EXIT_FAILURE);
+    }
+    while (fgets(line, BUF, fp) != NULL)
+    {
+        if (has_ch(ch, line))
+            fputs(line, stdout);
+    }
+    fclose(fp);             //我写的没有关文件...
+    return 0;
+}
+
+int has_ch(char ch, const char * line)
+{
+    while (*line)           //这个很精妙，'\0'的值是0
+        if (ch == *line++)  //if循环厉害了
+            return (1);     //两种返回值
+    return 0;
+}
+
+
 6. 二进制文件和文本文件有何区别？二进制流和文本流有何区别？
     二进制文件和文本文件在Unix系统中没有区别，Unix只有一种文件系统，但是在其他环境
     中，例如Windows，文本文件中的一些符号例如'\n'不会被显示出来，但是在二进制文件
