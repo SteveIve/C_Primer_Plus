@@ -4,10 +4,10 @@
         int * fp;
         int k;
 
-        fp = fopen("gelation");
+        fp = fopen("gelatin");
         for (k = 0; k < 30; k++)
-            fputs(fp, "Nanette eats gelation.");
-        fclose("gelation");
+            fputs(fp, "Nanette eats gelatin.");
+        fclose("gelatin");
         return 0;
     }
 
@@ -15,6 +15,27 @@
     1) fp是一个整形指针，而不是一个文件指针。
     2) fopen()需要选择文件打开模式。
     3) fclose()函数需要一个文件指针，而不是一个字符串。
+
+    答案：
+    根据文件定义，应包含#include <stdio.h>。
+    应该把fp声明为文件指针：FILE * fp;
+    要给fopen()函数提供一种模式：fopen("gelatin", "w")，或者"a"模式。
+    fputs()函数的参数顺序应该反过来。
+    输出字符串应该有个换行符，提高可读性。
+    fclose()函数需要一个文件指针，而不是一个文件名: fclose(fp);
+    下面是修改后的版本：
+    #include <stdio.h>
+    int main(void)
+    {
+        FILE * fp;
+        int k;
+        fp = fopen("gelatin", "w");
+        for (k = 0; k < 30; k++)
+            fputs("Nanette eats gelatin.\n", fp);
+        fclose(fp);
+        return 0;
+    }
+
 
 2. 下面的程序完成什么任务？（假设在命令行环境中运行）
     #include <stdio.h>
@@ -38,6 +59,11 @@
     }
 
     程序打印以命令行参数（第二个）作为文件名的文件中，所有的数字。
+
+    答案：
+    如果可以打开的话，会打开与命令行第1个参数名相同名称的文件，并在屏幕上显示文件中的
+    每个数字字符。
+    
 
 3. 假设程序中有下列语句：
     #include <stdio.h>
