@@ -67,12 +67,61 @@
 
 int main(int argc, char * argv[])
 {
+    int count = 0;
+    double total = 0;
+    double numbers;
+
     if (argc > 2 || argc <= 0)
         puts("Wrong");
     else if (argc == 2)
     {
-        int name_len;
-        name_len = strlen(argv[1]);
-        
+        FILE * fp = fopen(argv[1], "r");
+        while (fscanf(fp, "%lf", &numbers) == 1)
+        {
+            count++;
+            total += numbers;
+        }
     }
+    else
+    {
+        double numbers;
+        int count = 0;
+        double total = 0;
+        puts("Enter some numbers:");
+        while (fscanf(stdin, "%lf", &numbers) == 1)
+        {
+            count++;
+            total += numbers;
+            puts("Continue:");
+        }
+    }
+    printf("The average number is %.3f.\n", (total/(double)count));
+
+    return 0;
 }
+
+5. 编写一个程序，接受两个命令行参数。第1个参数是字符，第二个参数是文件名。要求该程序
+   只打印文件中包含给定字符的那些行。
+
+#include <stdio.h>
+#include <stdlib.h>
+#define LINELEN 256
+
+int main(int argc, char * argv[])
+{
+    if (argc != 3)
+        puts("Wrong.");
+    else
+    {
+        FILE * file = fopen(argv[2], "r");
+        char tar_ch = *argv[1];
+        char temp[LINELEN];
+        while ((fgets(temp, LINELEN, file)) == NULL)
+        {
+            if (strchr(temp, tar_ch))
+                puts(temp);
+        }
+    }
+    return 0;
+}
+
