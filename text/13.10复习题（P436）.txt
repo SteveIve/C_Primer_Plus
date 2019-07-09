@@ -1,0 +1,78 @@
+1. 下面的程序有什么问题？
+    int main(void)
+    {
+        int * fp;
+        int k;
+
+        fp = fopen("gelation");
+        for (k = 0; k < 30; k++)
+            fputs(fp, "Nanette eats gelation.");
+        fclose("gelation");
+        return 0;
+    }
+
+    问题：
+    1) fp是一个整形指针，而不是一个文件指针。
+    2) fopen()需要选择文件打开模式。
+    3) fclose()函数需要一个文件指针，而不是一个字符串。
+
+2. 下面的程序完成什么任务？（假设在命令行环境中运行）
+    #include <stdio.h>
+    #include <stdlib.h>
+    #include <ctype.h>
+
+    int main(int argc, char * argv[])
+    {
+        int ch;
+        FILE * fp;
+        if (argc < 2)
+            exit(EXIT_FAILURE);
+        if ((fp = fopen(argv[1], "r")) == NULL)
+            exit(EXIT_FAILURE);
+        while((ch = getc(fp)) != EOF)
+            if (isdigit(ch))
+                putchar(ch);
+        fclose(fp);
+
+        return 0;
+    }
+
+    程序打印以命令行参数（第二个）作为文件名的文件中，所有的数字。
+
+3. 假设程序中有下列语句：
+    #include <stdio.h>
+    FILE * fp1, * fp2;
+    char ch;
+
+    fp1 = fopen("terky", "r");
+    fp2 = fopen("jerky", "r");
+    另外，假设成功打开了两个文件。补全下面函数调用中缺少的参数：
+    a. ch = getc();
+    b. fprintf( , "%c\n", );
+    c. putc( , );
+    d. fclose();    //关闭terky文件
+
+    a. ch = getc(fp1);
+    b. fprintf(stdout, "%c\n", ch);
+    c. putc(ch, fp2);
+    d. fclose(fp1);
+
+4. 编写一个程序，不接受任何命令行参数或接受一个命令行参数。如果有一个参数，将其解释为
+   文件名；如果没有参数，使用标准输入(stdin)作为输入。假设输入完全是浮点数。该程序要
+   计算和报告输入数字的算数平均值。
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main(int argc, char * argv[])
+{
+    if (argc > 2 || argc <= 0)
+        puts("Wrong");
+    else if (argc == 2)
+    {
+        int name_len;
+        name_len = strlen(argv[1]);
+        
+    }
+}
