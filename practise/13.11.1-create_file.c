@@ -14,13 +14,13 @@ int main(void)
     if ((fp = fopen(name, "a+")) == NULL)
         puts("Wrong in opening file.");
     puts("Enter the contexts (empty line to quit):");
-    while (fgets(line, SLEN, stdin) && line[0] != '\0')
+    while (fgets(line, SLEN, stdin) && line[0] != '\n')
     {
         fputs(line, fp);
     }
     fseek(fp, 0L, SEEK_SET);
     fprintf(stdout, "The file %s has the following contexts:\n", name);
-    while (fgets(line, SLEN, fp) != EOF)
+    while (fgets(line, SLEN, fp) != NULL)
         fputs(line, stdout);
     fclose(fp);
     puts("Done.");
