@@ -13,6 +13,8 @@ int main(void)
         puts("Wrong in file name.");
     if ((fp = fopen(name, "a+")) == NULL)
         puts("Wrong in opening file.");
+    while (getchar() != '\n')
+        continue;       //Çå¿ÕÊ£Óà»º³åÇø
     puts("Enter the contexts (empty line to quit):");
     while (fgets(line, SLEN, stdin) && line[0] != '\n')
     {
@@ -23,6 +25,7 @@ int main(void)
     while (fgets(line, SLEN, fp) != NULL)
         fputs(line, stdout);
     fclose(fp);
+    putchar('\n');
     puts("Done.");
 
     system("pause");
