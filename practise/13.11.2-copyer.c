@@ -15,7 +15,7 @@ int main(int argc, char * argv[])
         exit(EXIT_FAILURE);
     }
 
-    if ((fd = fopen(argv[1], "w+")) == NULL && (fs = fopen(argv[2], "r")) == NULL)
+    if ((fd = fopen(argv[1], "wb+")) == NULL || (fs = fopen(argv[2], "rb")) == NULL)
     {
         fprintf(stderr, "Wrong in opening dest/source file.\n");
         exit(EXIT_FAILURE);             //打开文件失败时
