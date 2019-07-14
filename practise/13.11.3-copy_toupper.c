@@ -34,7 +34,7 @@ int main(void)
     }
     while ((ch = getc(name_source)) != EOF)
     {
-        if (putc(ch, name_dest) == NULL)
+        if (putc(toupper(ch), name_dest) == NULL)
         {
             fprintf(stderr, "Wrong in copying the words to the destinated file.\n");
             exit(EXIT_FAILURE);
