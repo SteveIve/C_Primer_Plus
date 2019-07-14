@@ -18,10 +18,12 @@ int main(void)
         fprintf(stderr, "Wrong in entering the file name.\n");
         exit(EXIT_FAILURE);
     }
+    while (getchar() != '\n')
+        continue;
     strncpy(name_dest, name_source, NAMELEN - 4);
     strcat(name_dest, "_cpy");
     for (int i = 0; name_dest[i] != '\0'; i++)
-        toupper(name_dest[i]);
+        name_dest[i] = toupper(name_dest[i]);
     if ((fs = fopen(name_source, "r")) == NULL)
     {
         fprintf(stderr, "Wrong in opening the source file.\n");
@@ -32,27 +34,23 @@ int main(void)
         fprintf(stderr, "Wrong in creating the destnated file.\n");
         exit(EXIT_FAILURE);
     }
-    while ((ch = getc(name_source)) != EOF)
+    while ((ch = getc(fs)) != EOF)
     {
-        if (putc(toupper(ch), name_dest) == NULL)
-        {
-            fprintf(stderr, "Wrong in copying the words to the destinated file.\n");
-            exit(EXIT_FAILURE);
-        }
+        putc(toupper(ch),fd);
     }
-    if (ferror(name_source) != 0)
+    if (ferror(fs) != 0)
     {
         fprintf(stderr, "Wrong in reading file %s.\n", name_source);
         exit(EXIT_FAILURE);
     }
-    if (feof(name_dest) != 0)
+    if (feof(fd) != 0)
     {
         fprintf(stderr, "Wrong in writing file %s.\n", name_dest);
         exit(EXIT_FAILURE);
     }
     puts("Done copying.");
-    fclose(name_dest);
-    fclose(name_source);
+    fclose(fs);
+    fclose(fd);
 
     system("pause");
     return 0;
