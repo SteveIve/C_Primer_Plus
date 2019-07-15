@@ -51,6 +51,7 @@ int main(int argc, char * argv[])
             fputs("Can't create input buffer.\n", stderr);
         }
         append(fs, fa);
+        fprintf(fa, "\n\n");
         if (ferror(fs) != 0)
             fprintf(stderr, "Error in reading file %s.\n", argv[file_num]);
         if (ferror(fa) != 0)
