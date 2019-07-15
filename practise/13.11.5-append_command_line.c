@@ -50,8 +50,8 @@ int main(int argc, char * argv[])
         {
             fputs("Can't create input buffer.\n", stderr);
         }
-        fprintf(fa, "\n\n");
-        
+        fprintf(fa, "\n");
+
         append(fs, fa);
         
         if (ferror(fs) != 0)
