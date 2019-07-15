@@ -15,7 +15,7 @@ int main(int argc, char * argv[])
     if (argc <= 2)
     {
         fprintf(stderr, "Usage: %s [destinated file] [source file]\n", argv[0]);
-        fprintf(stderr, "(tip: you may enter more than one source file.\n");
+        fprintf(stderr, "(tip: you may enter more than one source file.)\n");
         exit(EXIT_FAILURE);
     }
     if ((fa = fopen(argv[1], "a+")) == NULL)
@@ -57,9 +57,10 @@ int main(int argc, char * argv[])
             fprintf(stderr, "Error in writing file %s.\n", argv[1]);
         fprintf(stdout, "File %s appended.\n\n", argv[file_num]);
         fclose(fs);
-        file_num++;
+        
         if (argc - file_num != 1)
             fprintf(stdout, "Next file appendeding...\n");
+        file_num++;
     }
     fprintf(stdout, "Done appending. %d files appended.\n", argc - 2);
     rewind(fa);
@@ -78,6 +79,6 @@ void append(FILE * source, FILE * dest)
     size_t bytes;
     static char temp[BUFSIZE];
 
-    while (bytes = fread(temp, sizeof(char), BUFSIZE, source) > 0)
+    while ((bytes = fread(temp, sizeof(char), BUFSIZE, source)) > 0)
         fwrite(temp, sizeof(char), bytes, dest);
 }
