@@ -15,7 +15,7 @@ int main(int argc, char * argv[])
 
     fprintf(stdout, "Here is the first file entered in the command line:\n");
 
-    while (file_num < argc - 1)
+    while (file_num < argc)
     {
         FILE * fs;
         if ((fs = fopen(argv[file_num], "r")) == NULL)
@@ -25,8 +25,11 @@ int main(int argc, char * argv[])
         }
         while ((ch = getc(fs)) != EOF)
             putc(ch, stdout);
+        putc('\n', stdout);
+        putc('\n', stdout); //²úÉú¿ÕÐÐ
         fclose(fs);
-        fprintf(stdout, "Here is the next file:\n");
+        if (argc -1 != file_num)
+            fprintf(stdout, "Here is the next file:\n");
         file_num++;
     }
     fprintf(stdout, "Done.\n");
