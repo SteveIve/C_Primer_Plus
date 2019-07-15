@@ -58,7 +58,7 @@ int main(int argc, char * argv[])
         fprintf(fa, "\n\n");
         fclose(fs);
         file_num++;
-        fprintf(stdout, "File %s appended.\n", argv[file_num]);
+        fprintf(stdout, "File %s appended.\n\n", argv[file_num]);
         if (argc - file_num != 1)
             fprintf(stdout, "Next file appendeding...\n");
     }
