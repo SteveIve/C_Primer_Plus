@@ -55,7 +55,7 @@ int main(int argc, char * argv[])
             fprintf(stderr, "Error in reading file %s.\n", argv[file_num]);
         if (ferror(fa) != 0)
             fprintf(stderr, "Error in writing file %s.\n", argv[1]);
-        fprintf(fa, "\n");
+        fprintf(fa, "\n\n");
         fclose(fs);
         file_num++;
         fprintf(stdout, "File %s appended.\n", argv[file_num]);
