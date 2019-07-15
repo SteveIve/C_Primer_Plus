@@ -28,7 +28,7 @@ int main(int argc, char * argv[])
         putc('\n', stdout);
         putc('\n', stdout); //产生空行
         fclose(fs);
-        if (argc -1 != file_num)
+        if (argc -1 != file_num)   //如果不是最后一个文件，就显示“下一个文件”
             fprintf(stdout, "Here is the next file:\n");
         file_num++;
     }
