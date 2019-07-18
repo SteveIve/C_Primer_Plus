@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #define NAMELEN 81
 
+void show_file(FILE * file_name);
+
 int main(int argc, char * argv[])
 {
     FILE * f1,  *f2;
@@ -46,5 +48,8 @@ int main(int argc, char * argv[])
         }
     }
 
-    
+    fprintf(stdout, "\nHere is the first file:\n");
+    show_file(f1);
+    fclose()
+
 }
