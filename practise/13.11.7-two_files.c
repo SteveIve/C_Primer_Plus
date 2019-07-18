@@ -9,7 +9,6 @@ int main(int argc, char * argv[])
     FILE * f1,  *f2;
     char name_1[NAMELEN];
     char name_2[NAMELEN];
-    int ch;
 
     if (argc == 3)
     {
@@ -60,7 +59,12 @@ int main(int argc, char * argv[])
     return 0;
 }
 
-void show_file(FILE * file_name)
+void show_file(FILE * file)
 {
-    
+    int ch;
+
+    while ((ch = getc(file)) != EOF)
+    {
+        putc(ch, stdout);
+    }
 }
