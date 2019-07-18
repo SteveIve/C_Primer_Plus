@@ -31,13 +31,25 @@ int main(int argc, char * argv[])
     while (ch1 != EOF || ch2 != EOF)
     {
         while (ch1 != EOF && ch1 != '\n')
+        {
             putc(ch1, stdout);
+            ch1 = getc(f1);
+        }
         if (ch1 != EOF)
+        {
             putchar('\n');
+            ch1 = getc(f1);
+        }
         while (ch2 != EOF && ch2 != '\n')
+        {
             putc(ch2, stdout);
+            ch2 = getc(f2);
+        }
         if (ch2 != EOF)
+        {
             putchar('\n');
+            ch2 = getc(f2);
+        }
     }
 
     if (fclose(f1) != 0 || fclose(f2) != 0)
