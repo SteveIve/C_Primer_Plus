@@ -9,5 +9,5 @@ int main(int argc, char * argv[])
     char name_2[NAMELEN];
     int ch;
 
-    
+    if (argc == 2)
 }
