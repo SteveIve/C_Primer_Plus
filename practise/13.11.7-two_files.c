@@ -67,4 +67,5 @@ void show_file(FILE * file)
     {
         putc(ch, stdout);
     }
+    putchar('\n');
 }
