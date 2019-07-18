@@ -4,7 +4,7 @@
 
 int main(int argc, char * argv[])
 {
-    FILE * f1, f2;
+    FILE * f1,  *f2;
     char name_1[NAMELEN];
     char name_2[NAMELEN];
     int ch;
@@ -22,4 +22,29 @@ int main(int argc, char * argv[])
             exit(EXIT_FAILURE);
         }
     }
+
+    if (argc != 3)
+    {
+        fprintf(stdout, "Please enter the name of the first file:\n");
+        fscanf(stdin, "%s", name_1);
+        while (getchar() != '\n')
+            continue;
+        fprintf(stdout, "Now enter thr name of the second file:\n");
+        fscanf(stdin, "%s", name_2);
+        while (getchar() != '\n')
+            continue;
+        
+        if ((f1 = fopen(name_1, "r")) == NULL)
+        {
+            fprintf(stderr, "Wrong in opening the first file:\n");
+            exit(EXIT_FAILURE);
+        }
+        if ((f2 = fopen(name_2, "r")) == NULL)
+        {
+            fprintf(stderr, "Wrong in opening the second file:\n");
+            exit(EXIT_FAILURE);
+        }
+    }
+
+    
 }
