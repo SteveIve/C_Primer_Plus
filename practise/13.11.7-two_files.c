@@ -50,6 +50,17 @@ int main(int argc, char * argv[])
 
     fprintf(stdout, "\nHere is the first file:\n");
     show_file(f1);
-    fclose()
+    fprintf(stdout, "\nHere is the second file:\n");
+    show_file(f2);
 
+    fclose(f1);
+    fclose(f2);
+
+    system("pause");
+    return 0;
+}
+
+void show_file(FILE * file_name)
+{
+    
 }
