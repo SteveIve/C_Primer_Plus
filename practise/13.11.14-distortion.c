@@ -46,6 +46,7 @@ int main(void)
 		fprintf(stderr, "Wrong in reading in the data.\n");
 		exit(EXIT_FAILURE);
 	}
+	DealDistortion(ROWS, COLS, data);
 	MakePic(ROWS, COLS, data, pic);
 
 	for (rows = 0; rows < ROWS; rows++)
