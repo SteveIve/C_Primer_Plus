@@ -65,10 +65,4 @@ int main(int argc, char * argv[])
         }
         int count;
         int test;
-        for (count = 0, test = getc(fp); test != EOF; )
-        {
-            if (test == ch)
-                count++;
-        }
-    }
-}
+        for (count = 0, test = getc(fp); 
