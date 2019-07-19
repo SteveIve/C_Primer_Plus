@@ -12,4 +12,16 @@ int main(int argc, char * argv[])
     {
         if (argc == 1)
         {
+            fprintf(stdout, "Please enter the parameter letter:\n");
+            fscanf(stdin, "%c", &ch);
+            while (getchar() != '\n')
+                continue;
+            fp = stdin;
+            fprintf(stdout, "Now enter some contents:\n");
+        }
+        if (argc == 2)
+        {
             
+        }
+    }
+}
