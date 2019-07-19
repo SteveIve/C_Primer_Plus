@@ -58,11 +58,3 @@ int main(int argc, char * argv[])
             while (getchar() != '\n')
                 continue;
         }
-        if ((fp = fopen(argv[2], "r")) == NULL)
-        {
-            fprintf(stderr, "Wrong in opening file.\n");
-            exit(EXIT_FAILURE);
-        }
-        int count;
-        int test;
-        for (count = 0, test = getc(fp); 
