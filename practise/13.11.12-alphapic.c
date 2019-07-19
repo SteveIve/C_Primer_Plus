@@ -9,7 +9,8 @@
 const char trans[LEVELS + 1] = " .':~*=&@#";
 
 void MakePic(int data[][COLS], char pic[][COLS], int rows);
-int init(char arr[][COLS], char ch);
+void init(char arr[][COLS], char ch);
+void makefile(char pic[][COLS], int rows, char *filename);
 
 int main(void)
 {
@@ -19,6 +20,8 @@ int main(void)
     char filename[NAMELEN];
     char picname[NAMELEN];
     FILE * fp;
+
+    init(pic, 'S');
 
     fprintf(stdout, "Enter the file name:\n");
     fscanf(stdin, "%s", filename);
@@ -41,5 +44,25 @@ int main(void)
         fprintf(stderr, "Wrong in reading in the data.\n");
         exit(EXIT_FAILURE);
     }
-    
+    MakePic(data, pic, 20);
+
+    for (rows = 0; rows < ROWS; rows++)
+    {
+        for (cols  = 0; cols < COLS; cols++)
+            putchar(pic[rows][cols]);
+        putchar('\n');
+    }
+
+    makefile(pic, ROWS, picname);
+
+    system("pause");
+    return 0;
+}
+
+void init(char arr[rows][cols], char ch)
+{
+    int r, c;
+    for (r = 0; r < rows; r++)
+        for (c = 0; c < cols; c++)
+            arr[r][c] = ch;
 }
