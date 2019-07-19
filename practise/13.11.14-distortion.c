@@ -93,4 +93,7 @@ void makefile(int rows, int cols, char pic[rows][cols], char* filename)
 	}
 }
 
-void DealDistortion()
+void DealDistortion(int rows, int cols, int data[rows][cols])
+{
+    
+}
