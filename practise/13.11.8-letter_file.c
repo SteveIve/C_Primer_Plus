@@ -21,7 +21,48 @@ int main(int argc, char * argv[])
         }
         if (argc == 2)
         {
-            
+            if (strlen(argv[1]) != 1)
+            {
+                fprintf(stderr, "Wrong parameter!\n");
+                fprintf(stdout, "Please enter the correct parameter letter:\n");
+                fscanf(stdin, "%c", &ch);
+                while (getchar() != '\n')
+                    continue;
+            }
+            fp = stdin;
+            fprintf(stdout, "Now enter some contents:\n");
         }
+    }
+    if (strlen(argv[1]) != 1)
+    {
+        fprintf(stderr, "Wrong parameter!\n");
+        fprintf(stdout, "Please enter the correct parameter letter:\n");
+        fscanf(stdin, "%c", &ch);
+        while (getchar() != '\n')
+            continue;
+    }
+    int test;
+    int count = 0;
+
+    fprintf(stdout, "Calculating...\n");
+
+    while ((test = getc(fp)) != EOF)
+        if (test == ch)
+            count++;
+    fprintf(stdout, "There are %d '%c' letters in the contents.\n\n", count, ch);
+    int i = 3;
+    while (i < argc)
+    {
+        if ((fp = fopen(argv[i], "r")) == NULL)
+        {
+            fprintf(stderr, "Wrong in opening the file.\n");
+            exit(EXIT_FAILURE);
+        }
+        fprintf(stdout, "Next calculating...\n");
+        while ((test = getc(fp)) != EOF)
+            if (test == ch)
+                count++;
+        fprintf(stdout, "There are %d '%c' letters in the contents.\n\n", count, ch);
+
     }
 }
