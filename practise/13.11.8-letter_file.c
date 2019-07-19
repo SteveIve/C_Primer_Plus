@@ -59,6 +59,7 @@ int main(int argc, char * argv[])
     int i = 3;
     while (i < argc)
     {
+        count = 0;
         if ((fp = fopen(argv[i], "r")) == NULL)
         {
             fprintf(stderr, "Wrong in opening the file.\n");
