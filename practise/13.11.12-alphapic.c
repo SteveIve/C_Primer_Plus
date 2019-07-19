@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #define ROWS 20
 #define COLS 30
 #define LEVELS 10
@@ -25,6 +26,20 @@ int main(void)
         continue;
     if ((fp = fopen(filename, "r")) == NULL)
     {
-        
+        fprintf(stderr, "Wrong in opening file.\n");
+        exit(EXIT_FAILURE);
     }
+    strncpy(picname, filename, NAMELEN -5);
+    picname[NAMELEN - 6] = '\0';
+    strcat(picname, "_tran");
+    //此处读入数据
+    for (rows = 0; rows < ROWS; rows++)
+        for (cols = 0; cols < COLS; cols++)
+            fscanf(fp, "%d", &pic[rows][cols]);
+    if (ferror(fp))             //检查读入错误
+    {
+        fprintf(stderr, "Wrong in reading in the data.\n");
+        exit(EXIT_FAILURE);
+    }
+    
 }
