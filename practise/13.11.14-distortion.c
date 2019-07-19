@@ -95,5 +95,12 @@ void makefile(int rows, int cols, char pic[rows][cols], char* filename)
 
 void DealDistortion(int rows, int cols, int data[rows][cols])
 {
-    
+	int up, down, left, right;
+    for (int r = 0; r < rows; r++)
+	{
+		for (int c = 0; c < cols; c++)
+		{
+			
+		}
+	}
 }
