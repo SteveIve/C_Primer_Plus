@@ -63,6 +63,6 @@ int main(int argc, char * argv[])
             if (test == ch)
                 count++;
         fprintf(stdout, "There are %d '%c' letters in the contents.\n\n", count, ch);
-
+        i++;
     }
 }
