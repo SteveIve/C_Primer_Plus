@@ -33,6 +33,7 @@ int main(int argc, char * argv[])
             fprintf(stdout, "Now enter some contents:\n");
         }
     }
+    ch = argv[1][0];
     if (strlen(argv[1]) != 1)
     {
         fprintf(stderr, "Wrong parameter!\n");
@@ -40,6 +41,11 @@ int main(int argc, char * argv[])
         fscanf(stdin, "%c", &ch);
         while (getchar() != '\n')
             continue;
+    }
+    if ((fp = fopen(argv[2], "r")) == NULL)
+    {
+        fprintf(stderr, "Wrong in opening file.\n");
+        exit(EXIT_FAILURE);
     }
     int test;
     int count = 0;
