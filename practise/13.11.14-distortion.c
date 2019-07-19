@@ -12,6 +12,7 @@ void MakePic(int rows, int cols, int data[rows][cols], char pic[rows][cols]);
 void init(int rows, int cols, char arr[rows][cols], char ch);
 void makefile(int rows, int cols, char pic[rows][cols], char* filename);
 void DealDistortion(int rows, int cols, int data[rows][cols]);
+int difference(int a, int b);
 
 int main(void)
 {
@@ -96,11 +97,50 @@ void makefile(int rows, int cols, char pic[rows][cols], char* filename)
 void DealDistortion(int rows, int cols, int data[rows][cols])
 {
 	int up, down, left, right;
+	int count;
+
     for (int r = 0; r < rows; r++)
 	{
 		for (int c = 0; c < cols; c++)
 		{
-			
+			if (r == 0 || r == (rows -1) || c == 0 || c == (cols - 1))
+				continue;
+			up = data[r-1][c];
+			down = data[r+1][c];
+			left = data[r][c-1];
+			right = data[r][c+1];
+
+			count = 0;
+			if (difference(data[r][c], up) > 1)
+				count++;
+			else 
+				continue;
+
+			if (difference(data[r][c], down) > 1)
+				count++;
+			else 
+				continue;
+
+			if (difference(data[r][c], left) > 1)
+				count++;
+			else 
+				continue;
+
+			if (difference(data[r][c], right) > 1)
+				count++;
+			else 
+				continue;
+
+			if (count == 4)
+				data[r][c] = (int)((up + down + left + right) / 4);
 		}
 	}
+}
+
+int difference(int a, int b)
+{
+	if (a > b)
+		return (a - b);
+	else
+		return (b - a);	
 }
