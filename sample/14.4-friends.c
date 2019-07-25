@@ -34,6 +34,8 @@ int main(void)
 
     printf("address #1: %p #2: %p\n", &fellow[0], &fellow[1]);
     him = &fellow[0];
+    //结构变量名并不是地址，不像数组可以直接pointer = arr_name;
+    //指针指向结构变量要在结构变量名前面加上*号
     printf("pointer #1: %p #2: %p\n", him, him + 1);
     printf("him->income is $%.2f: (*him).income is $%.2f\n",
             him->income, (*him).income);
