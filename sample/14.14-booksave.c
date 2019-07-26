@@ -42,14 +42,14 @@ int main(void)
     }
 
     puts("Please add new book titles.");
-    puts("Press [enter] at the start fo a line to stop.");
+    puts("Press [enter] at the start of a line to stop.");
     while (count < MAXBKS && s_gets(library[count].title, MAXTITL) != NULL
                 && library[count].title[0] != '\0')
     {
         puts("Now enter the author.");
         s_gets(library[count].author, MAXAUTL);
         puts("Now enter the value.");
-        scanf("%f", &library[count].value);
+        scanf("%f", &library[count++].value);
         while (getchar() != '\n')
             continue;
         if (count < MAXBKS)
