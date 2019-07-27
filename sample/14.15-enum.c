@@ -18,7 +18,7 @@ int main(void)
     puts("Enter a color (empty line to quit):");
     while (s_gets(choice, LEN) != NULL && choice[0] != '\0')
     {
-        for (color = red; color <= voilet; color++)
+        for (color = red; color <= violet; color++)
         {
             if (strcmp(choice, colors[color]) == 0)
             {
@@ -64,5 +64,16 @@ char * s_gets(char * st, int n)
     char * ret_val;
     char * find;
 
-    ret_val = 
+    ret_val = fgets(st, n, stdin);
+    if (ret_val)
+    {
+        find = strchr(st, '\n');
+        if (find)
+            *find = '\0';
+        else 
+            while (getchar() != '\n')
+                continue;
+    }
+
+    return ret_val;
 }
