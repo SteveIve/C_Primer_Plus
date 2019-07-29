@@ -1,0 +1,12 @@
+1. 下面的结构模板有什么问题：
+structure {
+    char itable;
+    int num[20];
+    char * togs
+}
+
+    a. 结构类型的表示方法是struct而不是structure
+    b. 没有给结构模板加上标签
+    c. 最后一个成员char * togs最好加上分号;把。。
+
+2. 
