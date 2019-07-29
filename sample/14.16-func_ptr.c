@@ -70,4 +70,68 @@ char showmenu(void)
     return ans;
 }
 
-void 
+void eatline(void)
+{
+    while (getchar() != '\n')
+        continue;
+}
+
+void ToUpper(char * str)
+{
+    while (*str)
+    {
+        *str = toupper(*str);
+        str++;
+    }
+}
+
+void ToLower(char *str)
+{
+    while (*str)
+    {
+        *str = tolower(*str);
+        str++;
+    }
+}
+
+void Transpose(char *str)
+{
+    while (*str)
+    {
+        if (islower(*str))
+            *str = toupper(*str);
+        else if (isupper(*str))
+            *str = tolower(*str);
+        str++;
+    }
+}
+
+void Dummy(char * str)
+{
+    //²»¸Ä±ä×Ö·û´®
+}
+
+void show(void (*fp)(char *), char * str)
+{
+    (*fp)(str);
+    puts(str);
+}
+
+char * s_gets(char * st, int n)
+{
+    char * ret_val;
+    char * find;
+
+    ret_val = fgets(st, n, stdin);
+    if (ret_val)
+    {
+        find = strchr(st, '\n');
+        if (find)
+            *find = '\0';
+        else 
+            while (getchar() != '\n')
+                continue;
+    }
+
+    return ret_val;
+}
