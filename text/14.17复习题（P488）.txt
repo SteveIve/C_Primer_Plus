@@ -176,6 +176,30 @@ int days(int mon_num)
    行驶的英里数）评级、轴距和出场年份。使用car作为该模板的标记。
    struct car {
        char name[20];
-       float -
-       *--*
-   }
+       float horsepower;
+       char MPG_rank;
+       float wheelbase;
+       int year_manufacture;
+   };
+
+10. 假设有如下结构：
+    struct gas {
+        float distance;
+        float gals;
+        float mpg;
+    };
+    a. 设计一个函数，接受struct gas类型的参数。假设传入的结构包含distance和gals信息。
+       该函数为mpg成员计算正确的值，并把值返回该结构。
+    b. 设计一个函数，接受struct gas类型的参数。假设传入的结构包含distance和gals信息。
+       该函数为mpg成员计算正确的值，并把值赋给合适的成员。
+
+    a. 
+    float mpg_cal(struct gas car)
+    {
+        return (car.distance/car.gals);
+    }
+    b. 
+    void mpg_cal_pt(strcut gas *car)
+    {
+        (*car).mpg = (*car).distance/(*car).gals;
+    }
