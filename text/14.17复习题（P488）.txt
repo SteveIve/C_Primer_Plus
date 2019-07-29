@@ -209,3 +209,13 @@ int days(int mon_num)
 
 12. 声明一个指向函数的指针，该函数返回char的指针，接受一个指向char的指针和一个char类型的值。
     char * (*pfunc)(char * pt, char ch);
+
+13. 声明4个函数，并初始化一个指向这些函数的指针数组。每个函数都接受两个double类型的参数，
+    返回double类型的值。另外，用两种方法使用该数组调用带10.0和2.5实参的第2个函数。
+    double func1(dobule x, double y);
+    double func2(double x, double y);
+    double func3(double x, double y);
+    double func4(double x, double y);
+    doubel (*pfunc[4]) (double, double) = [func1, func2, func3, func4];
+    (*pfunc[1])(10.0, 2.5);
+    pfunc[1](10.0, 2.5);
