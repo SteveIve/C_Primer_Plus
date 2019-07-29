@@ -76,6 +76,9 @@ struct lunar year[12] = {
     {"December", "Dec", 31, 12}
 };
 
+答案：略。
+
+
 5. 编写一个函数，用户提供月份号，该函数就返回一年中到该月为止的总天数。
 int days(int mon_num)
 {
