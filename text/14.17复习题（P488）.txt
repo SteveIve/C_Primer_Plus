@@ -137,6 +137,21 @@ int days(int month);
     b. 
         LENS mylens[10] = {[2] = {500, 2.0, "Remarkata"}};
 
+答案：
+    a. 要包含string.h头文件，提供strcpy()的原型：
+       typedef struct lens {
+           float foclen;
+           float fstop;
+           char brand [30];
+       } LENS;
+
+       LENS bigEye[10];
+       bigEye[2].foclen = 500;
+       bigEye[2].fstop = 2.0;
+       strcpy(bigEye[2].brand, "Remarkatar");
+    b. LENS bigEye[10] = { [2] = {500, 2.0, "Remarkatar"} };
+    
+
 7. 考虑下面程序片段：
     struct name {
         char first[20];
