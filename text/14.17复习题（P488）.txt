@@ -9,4 +9,28 @@ structure {
     b. 没有给结构模板加上标签
     c. 最后一个成员char * togs最好加上分号;把。。
 
-2. 
+2. 下面都是程序的一部分，输出是什么？
+#include <stdio.h>
+struct house {
+    float sqft;
+    int rooms;
+    int stories;
+    char address[40];
+};
+int main(void)
+{
+    struct house fruzt = {1560.0, 6, 1, "22 Spiffo Road"};
+    struct house *sign;
+
+    sign = &fruzt;
+    printf("%d %d\n", fruzt.rooms, sign->stories);
+    printf("%s \n", fruzt.address);
+    printf("%c %c\n", sign->address[3], fuzt.address[4]);
+    return 0;
+}
+
+    输出内容如下：
+    6 1
+    22 Spiffo Road 
+    S p
+
