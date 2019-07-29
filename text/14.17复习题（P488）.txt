@@ -135,9 +135,47 @@ int days(int mon_num)
        pb->title.last
        (*pb).title.last
     c. 
+    #include <starfolk.h>
     void showinfo(struct bem *pst)
     {
         printf("%s %s is a %d-limbs %s.\n", (*pst).title.first, (*pst).title.last,
                 (*pst).limbs, (*pst).type);
     }
-    
+
+8. 考虑下面的声明：
+    struct fullname {
+        char fname[20];
+        char lname[20];
+    };
+    strcut bard {
+        strcut fullname name;
+        int born; 
+        int died;
+    };
+    strcut bard willie;
+    strcut bard *pt = &willie;
+    a. 用willie标识符标识willie结构的born成员。
+    b. 用pt标识符标识willie结构的born成员。
+    c. 调用scanf()读入一个用willie标识符标识的born成员的值。
+    d. 调用scanf()读入一个用pt标识符标识的born成员的值。
+    e. 调用scanf()读入一个用willie标识符标识的name成员中lname成员的值。
+    f. 调用scanf()读入一个用pt标识符标识的name成员中lname成员的值。
+    g. 构造一个标识符，表示willie结构变量所表示的姓名中名的第3个字母（英文的名在前面）
+    h. 构造一个表达式，表示willie结构变量所表示的名和姓中的字母的总数。
+
+    a. willie.born
+    b. pt->born
+    c. scanf("%d",&willie.born);
+    d. scanf("%d", pt->born);
+    e. scanf("%s", willie.name.lname);
+    f. scanf("%s", pt->name.lname);
+    g. char ch = willie.name.fname[3];
+    h. int total = strlen(willie.name.fname) + strlen(willie.name.lanme);
+
+9. 定义一个结构模板以储存这些项：汽车名、马力、EPA（美国环保局）城市交通MPG（每加仑燃料
+   行驶的英里数）评级、轴距和出场年份。使用car作为该模板的标记。
+   struct car {
+       char name[20];
+       float -
+       *--*
+   }
