@@ -93,6 +93,22 @@ int days(int mon_num)
     return total;
 }
 
+答案：
+extern struct month months[];
+int days(int month);
+{
+    int index, total;
+    if (month < 1 || month > 12)
+        return (-1);
+    else 
+    {
+        for (index = 0, total = 0; index < month; index++)
+            total += months[index].days;
+        return (total);
+    }
+}
+
+
 6. a. 假设有下面的typedef，声明一个内含10个指定结构的数组。然后，单独个成员赋值（或等价字
       符串），使第3个元素表示一个焦距长度有500mm，孔径为f/2.0的Remarkata镜头。
       typedef struct lens {
