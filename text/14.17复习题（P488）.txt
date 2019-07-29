@@ -34,3 +34,12 @@ int main(void)
     22 Spiffo Road 
     S p
 
+3. 设计一个结构模板储存一个月份名、该月份名的三个字母缩写、该月的天数以及月份号。
+//月份号是个什么玩意
+struct lunar {
+    char month[10];
+    char month_abb[4];
+    int days;
+    int number;
+}
+
