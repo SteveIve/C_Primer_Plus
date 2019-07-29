@@ -150,7 +150,7 @@ int days(int month);
        bigEye[2].fstop = 2.0;
        strcpy(bigEye[2].brand, "Remarkatar");
     b. LENS bigEye[10] = { [2] = {500, 2.0, "Remarkatar"} };
-    
+
 
 7. 考虑下面程序片段：
     struct name {
@@ -173,7 +173,7 @@ int days(int month);
     a. 下面的语句分别打印什么？
         printf("%d\n", deb.limbs);
         printf("%s\n", pb->type);
-        printf("%s\n", pb->type + 2);
+        printf("%s\n", pb->type + 2);       //狗日的+2还真就从第二个往后开始。
     b. 如何用结构表示法（两种方法）表示"Gwolkapwolk"？
     c. 编写一个函数，以bem结构的地址作为参数，并以下面的形式输出结构的内容（假定结构模板在一
        个名为starfolk.h的头文件中）：
@@ -187,12 +187,25 @@ int days(int month);
        pb->title.last
        (*pb).title.last
     c. 
-    #include <starfolk.h>
+    #include <starfolk.h>           //自己写的头文件用"" 
     void showinfo(struct bem *pst)
     {
         printf("%s %s is a %d-limbs %s.\n", (*pst).title.first, (*pst).title.last,
                 (*pst).limbs, (*pst).type);
     }
+
+答案：
+    a. 略。
+    b. 比答案多写一个，叉会腰。
+    c. 下面是一个版本：
+        #include <stdio.h>
+        #include "starfolk.h"       //让结构定义可用
+        void probem(const struct bem * pbem)
+        {
+            printf("%s %s is a %d-limbs %s.\n", pbem->title.first, 
+                    pbem->title.last, pbem->limbs, pbem->type);
+        }
+
 
 8. 考虑下面的声明：
     struct fullname {
