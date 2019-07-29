@@ -107,6 +107,7 @@ int days(int month);
         return (total);
     }
 }
+注意，index比月数小1，因为数组下标从0开始。然后，用index<month代替index<=month。
 
 
 6. a. 假设有下面的typedef，声明一个内含10个指定结构的数组。然后，单独个成员赋值（或等价字
