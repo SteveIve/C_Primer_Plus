@@ -337,3 +337,16 @@ set_mpgs(&ohio);                    //设置第三个成员
     doubel (*pfunc[4]) (double, double) = [func1, func2, func3, func4];
     (*pfunc[1])(10.0, 2.5);
     pfunc[1](10.0, 2.5);
+
+答案:
+    double sum(double, double);
+    double diff(double, double);
+    double times(double, double);
+    double divide(double, double);
+    double (*pfl[4])(double, double) = {sum, diff, times, divide};
+    或者用更简单的形式，把最后一行替换成：
+    typedef double (*ptype)(double, double);
+    ptype pfl[4] = {sum, diff, times, divide};
+    调用diff()函数：
+    pfl[1](10.0, 2.5);
+    (*pfl[1])(10.0, 2.5);
