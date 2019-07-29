@@ -72,3 +72,32 @@ int days(int mon_num)
 
     return total;
 }
+
+6. a. 假设有下面的typedef，声明一个内含10个指定结构的数组。然后，单独个成员赋值（或等价字
+      符串），使第3个元素表示一个焦距长度有500mm，孔径为f/2.0的Remarkata镜头。
+      typedef struct lens {
+          float foclen;     //焦距长度
+          float fstop;      //孔径
+          char brand[30];   //品牌名称
+      } LENS;
+
+    b. 重写a, 在声明重使用一个待制定初始化器的初始化列表，而不是对每个成员单独赋值。
+
+    a.
+        LENS mylens[10] = {
+            {18, 2.8, "Nikor"},
+            {35, 1.4, "Nikor"},
+            {500, 2.0, "Remarkata"},
+            {50, 1.2, "Leica"},
+            {70, 2.8, "Nikor"},
+            {100, 1.4, "Sony"},
+            {200, 1.4, "Sony"},
+            {300, 1.4, "Nikor"},
+            {400, 2.2, "Nikor"},
+            {600, 2.8, "Nikor"},
+        };
+
+    b. 
+        LENS mylens[10] = {[2] = {500, 2.0, "Remarkata"}};
+
+        
