@@ -203,3 +203,9 @@ int days(int mon_num)
     {
         (*car).mpg = (*car).distance/(*car).gals;
     }
+
+11. 声明一个choices的枚举，把枚举常量no、yes和maybe分别设置为0、1、2。
+    enum choices = {no = 0, yes = 1, maybe = 2};
+
+12. 声明一个指向函数的指针，该函数返回char的指针，接受一个指向char的指针和一个char类型的值。
+    char * (*pfunc)(char * pt, char ch);
