@@ -100,4 +100,31 @@ int days(int mon_num)
     b. 
         LENS mylens[10] = {[2] = {500, 2.0, "Remarkata"}};
 
-        
+7. 考虑下面程序片段：
+    struct name {
+        char first[20];
+        char last[20];
+    };
+    struct bem {
+        int limbs;
+        struct name title;
+        char type[30];
+    };
+    strcut bem * pb;
+    strcut bem deb = {
+        6,
+        {"Berbnazel", "Gwolkapwolk"},
+        "Arcturan"
+    };
+    pb = &deb;
+
+    a. 下面的语句分别打印什么？
+        printf("%d\n", deb.limbs);
+        printf("%s\n", pb->type);
+        printf("%s\n", pb->type + 2);
+    b. 如何用结构表示法（两种方法）表示"Gwolkapwolk"？
+    c. 编写一个函数，以bem结构的地址作为参数，并以下面的形式输出结构的内容（假定结构模板在一
+       个名为starfolk.h的头文件中）：
+       Berbnazel Gwolkapwolk is a 6-limbs Arcturan.
+    
+    a. 
