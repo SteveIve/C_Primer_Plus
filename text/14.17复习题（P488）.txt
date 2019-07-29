@@ -237,6 +237,11 @@ int days(int month);
     g. char ch = willie.name.fname[3];
     h. int total = strlen(willie.name.fname) + strlen(willie.name.lanme);
 
+答案：
+    d. scanf("%d", &pt->born);
+    g. willie.name.fname[2]         //fuck, 从0开始都能忘？
+    
+
 9. 定义一个结构模板以储存这些项：汽车名、马力、EPA（美国环保局）城市交通MPG（每加仑燃料
    行驶的英里数）评级、轴距和出场年份。使用car作为该模板的标记。
    struct car {
