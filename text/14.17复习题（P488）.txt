@@ -260,7 +260,7 @@ int days(int month);
         float wbase;
         int year;
     };
-    
+
 
 10. 假设有如下结构：
     struct gas {
@@ -283,6 +283,37 @@ int days(int month);
     {
         (*car).mpg = (*car).distance/(*car).gals;
     }
+
+答案：应该这样建立函数：
+struct gas {
+    float distance;
+    float gals;
+    float mpg;
+};
+
+struct gas mpgs(struct gas trip)
+{
+    if (trip.gals > 0)
+        trip.mpg = trip.distance/trip.gals;
+    else
+        trip.mpg = -1.0;
+    return trip;            //直接返回整个结构。
+}
+
+void set_mpgs(struct gas * ptrip)
+{
+    if (ptrip->gals > 0)
+        ptrip->mpg = ptrip->distance / ptrip->gals;
+    else 
+        ptrip->mpg = -1.0;
+}
+注意，第1个函数不能直接改变其主调程序中的值，所以必须用返回值才能传递信息。
+struct gas idaho = {430.0, 14.8};   //设置前两个成员
+idaho = mpgs(idaho);                //重置数据结构
+但是，第2个函数可以直接访问最初的结构：
+struct gas ohio = {583, 17.6};      //设置前两个成员
+set_mpgs(&ohio);                    //设置第三个成员
+
 
 11. 声明一个choices的枚举，把枚举常量no、yes和maybe分别设置为0、1、2。
     enum choices = {no = 0, yes = 1, maybe = 2};
