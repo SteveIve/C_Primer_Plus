@@ -38,8 +38,23 @@ int main(void)
 //月份号是个什么玩意
 struct lunar {
     char month[10];
-    char month_abb[4];
+    char month_abb[5];
     int days;
     int number;
-}
+};
 
+4. 定义一个数组，内含12个结构（第三题的结构类型）并初始化为一个年份（非闰年）。
+struct lunar year[12] = {
+    {"January", "Jan", 31, 1},February March April May June July August September October November December
+    {"February", "Feb", 28, 2},
+    {"March", "Mar", 31, 3},
+    {"April", "Apr", 30, 4},
+    {"May", "May", 31, 5},
+    {"June", "Jun", 30, 6},
+    {"July", "Jul", 31, 7},
+    {"August", "Aug", 31, 8},
+    {"September", "Sept", 30, 9},
+    {"October", "Oct", 31, 10},
+    {"November", "Nov", 30, 11},
+    {"December", "Dec", 31, 12}
+};
