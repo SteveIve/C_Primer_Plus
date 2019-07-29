@@ -127,4 +127,17 @@ int days(int mon_num)
        个名为starfolk.h的头文件中）：
        Berbnazel Gwolkapwolk is a 6-limbs Arcturan.
     
-    a. 
+    a. 打印如下：
+        6
+        Arcturan
+        cturan
+    b. deb.title.last
+       pb->title.last
+       (*pb).title.last
+    c. 
+    void showinfo(struct bem *pst)
+    {
+        printf("%s %s is a %d-limbs %s.\n", (*pst).title.first, (*pst).title.last,
+                (*pst).limbs, (*pst).type);
+    }
+    
