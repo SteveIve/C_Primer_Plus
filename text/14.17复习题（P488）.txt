@@ -9,6 +9,11 @@ structure {
     b. 没有给结构模板加上标签
     c. 最后一个成员char * togs最好加上分号;把。。
 
+答案：
+    正确的关键字是struct, 不是structure。该结构模板要在左花括号前面有一个标记，或者在右花括
+    号后面有一个结构变量名。另外，*togs后面和模板结尾都少一个分号。
+    
+
 2. 下面都是程序的一部分，输出是什么？
 #include <stdio.h>
 struct house {
