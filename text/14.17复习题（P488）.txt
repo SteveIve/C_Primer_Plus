@@ -41,6 +41,7 @@ int main(void)
 
 答案：略。
 
+
 3. 设计一个结构模板储存一个月份名、该月份名的三个字母缩写、该月的天数以及月份号。
 //月份号是个什么玩意
 struct lunar {
@@ -49,6 +50,15 @@ struct lunar {
     int days;
     int number;
 };
+
+答案： 
+struct month {
+    char name[10];
+    char abbrev[4];         //九月是Sept，加上空字符就不够了
+    int days;
+    int monumb;
+};
+
 
 4. 定义一个数组，内含12个结构（第三题的结构类型）并初始化为一个年份（非闰年）。
 struct lunar year[12] = {
