@@ -114,3 +114,9 @@ int main(void)
     puts("Wrong in calculating.");
     exit(EXIT_FAILURE);
 }
+
+void eatlines(void)
+{
+    while (getchar() != '\n')
+        continue;
+}
