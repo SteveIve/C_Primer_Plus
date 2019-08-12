@@ -30,8 +30,8 @@ int main(void)
         {"July", 31},
         {"August", 31},
         {"September", 30},
-        {"November", 31},
-        {"October", 30},
+        {"October", 31},
+        {"November", 30},
         {"December", 31}
     };
 
