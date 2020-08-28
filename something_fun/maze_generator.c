@@ -8,33 +8,35 @@ void message_to_code(int*);
 
 int main(void)
 {
-    int* input = get_input();
-    bool flag = mode_judge(input);
-    if (flag)
+    while (scanf() != 'Q')
     {
-        code_to_message(input);
+        int* input = get_input();
+        bool flag = mode_judge(input);
+        if (flag)
+        {
+            code_to_message(input);
+        }
+        else if(!flag)
+        {
+            message_to_code(input);
+        }
+        else
+        {
+            printf("Wrong.\n");
+        }
     }
-    else if(!flag)
-    {
-        message_to_code(input);
-    }
-    else
-    {
-        printf("Wrong.\n");
-    }
-    
     
 }
 
 int* get_input(void)
 {
     int input[999];
-    printf(":");
+    printf("Enter code or message to generate:\n");
     scanf("%s", input);
     return input;
 }
 
-bool mode_judge(int* input)
+_Bool mode_judge(int* input)
 {
     if (isdigit(input))
         return true;

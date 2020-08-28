@@ -119,7 +119,7 @@
 	long shot = 53456;
 	char grade = 'A';
 	float log = 2.71828;
-把下面printf（）语句中的转换字符补充完整：
+把下面printf()语句中的转换字符补充完整：
 	printf("The odds against the %__ were %__ to 1.\n", imate, shot);
 	printf("A score of %__ is not an %__ grade.\n", log, grade);
 
@@ -165,28 +165,4 @@
 	d. \t
 
 	a. 换行    b. 反斜杠\    c. 双引号“    d. 制表符Tab
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
