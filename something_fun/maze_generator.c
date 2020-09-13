@@ -32,13 +32,13 @@ int* get_input(void)
 {
     int input[999];
     printf("Enter code or message to generate:\n");
-    scanf("%s", input);
+    scanf("%s", &input);
     return input;
 }
 
-_Bool mode_judge(int* input)
+bool mode_judge(int* input)
 {
-    if (isdigit(input))
+    if (isdigit(*input))
         return true;
     else if (isalpha)
         return false;
@@ -46,5 +46,10 @@ _Bool mode_judge(int* input)
 
 void code_to_message(int* input)
 {
-    
+    int i = 0;
+    while (input[i] != EOF)
+    {
+        printf("%c", input[i]);
+        i++;
+    }
 }
