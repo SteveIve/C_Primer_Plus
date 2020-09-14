@@ -6,7 +6,7 @@ int main(void)
 	char last[10];
 
 	printf("Please enter your height in inch:\n");
-	scanf("%f",&height);
+	scanf("%f", &height);
 	printf("Please enter your full name:\n");
 	scanf("%s %s", first, last);
 	printf("Processing...\n");
