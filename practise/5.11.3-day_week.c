@@ -16,6 +16,7 @@ int main(void)
 		scanf("%d", &day);
 	}
 	printf("Done!\n");
+	system("pause");
 	
 	return 0;
 }

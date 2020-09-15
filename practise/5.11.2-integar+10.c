@@ -9,10 +9,12 @@ int main(void)
 	cpr = num-1;
 	printf("Here are the numbers:\n");
 
-	while (cpr++<num+PLUS){
+	while (cpr++<num+PLUS)			// 比较完后cpr变成输入值
+	{
 		printf("%d\t", cpr);
 	}
 	printf("\n");
 	printf("Done!\n");
+	system("pause");
 	return 0;
 }
