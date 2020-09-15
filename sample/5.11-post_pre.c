@@ -9,6 +9,6 @@ int main(void)
 
 	printf("a   a_post   b   pre_b \n");
 	printf("%1d %5d %5d %5d\n", a, a_post, b, pre_b);
-
+	system("pause");
 	return 0;
 }
