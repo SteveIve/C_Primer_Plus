@@ -2,16 +2,18 @@
 #include <ctype.h>
 
 int* get_input(void);
-bool mode_judge(int*);
+int mode_judge(int*);
 void code_to_message(int*);
 void message_to_code(int*);
 
 int main(void)
 {
+    printf("Enter filename to start code/decode:\n");
+    printf("Enter \"Q\" to quit.\n");
     while (scanf() != 'Q')
     {
         int* input = get_input();
-        bool flag = mode_judge(input);
+        int flag = mode_judge(input);
         if (flag)
         {
             code_to_message(input);
@@ -36,12 +38,15 @@ int* get_input(void)
     return input;
 }
 
-bool mode_judge(int* input)
+int mode_judge(int* input)
 {
     if (isdigit(*input))
-        return true;
+        return 1;
     else if (isalpha)
-        return false;
+        return 0;
+    else
+        return -1;
+    
 }
 
 void code_to_message(int* input)
