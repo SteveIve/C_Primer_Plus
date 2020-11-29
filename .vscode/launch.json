@@ -1,36 +1,36 @@
 {
     "version": "0.2.0",
     "configurations": [{
-        // ÅäÖÃ VS Code µ÷ÊÔÐÐÎª£º
-        "name": "GDB Debug", // ÉèÖÃÔÚÆô¶¯ÅäÖÃÏÂÀ­²Ëµ¥ÖÐÏÔÊ¾µ÷ÊÔÅäÖÃµÄÃû³Æ¡£
-        "preLaunchTask": "Compile", // µ÷ÊÔ»á»°¿ªÊ¼Ç°ÒªÔËÐÐµÄÈÎÎñ¡£
-        "type": "cppdbg", // ÉèÖÃÒªÊ¹ÓÃµÄ»ù´¡µ÷ÊÔÆ÷¡£Ê¹ÓÃ GDB »ò LLDB Ê±±ØÐëÊÇ cppdbg ¡£
-        "request": "launch", // ÉèÖÃÆô¶¯³ÌÐò»¹ÊÇ¸½¼Óµ½ÒÑ¾­ÔËÐÐµÄÊµÀý¡£Æô¶¯»ò¸½¼Ó ( launch | attach ).
-        "program": "${fileDirname}/${fileBasenameNoExtension}.exe", // µ÷ÊÔÆ÷½«Æô¶¯»ò¸½¼ÓµÄ¿ÉÖ´ÐÐÎÄ¼þµÄÍêÕûÂ·¾¶¡£
-        "externalConsole": true, // ÉèÖÃÊÇ·ñÏÔÊ¾Íâ²¿¿ØÖÆÌ¨¡£
-        "logging": { // ÓÃÓÚÈ·¶¨Ó¦¸Ã½«ÄÄÐ©ÀàÐÍµÄÏûÏ¢¼ÇÂ¼µ½µ÷ÊÔ¿ØÖÆÌ¨¡£
-            "exceptions": true, // ÊÇ·ñÓ¦½«Òì³£ÏûÏ¢¼ÇÂ¼µ½µ÷ÊÔ¿ØÖÆÌ¨¡£Ä¬ÈÏÎªÕæ¡£
-            "moduleLoad": false, // ÊÇ·ñÓ¦½«Ä£¿é¼ÓÔØÊÂ¼þ¼ÇÂ¼µ½µ÷ÊÔ¿ØÖÆÌ¨¡£Ä¬ÈÏÎªÕæ¡£
-            "programOutput": true, // ÊÇ·ñÓ¦½«³ÌÐòÊä³ö¼ÇÂ¼µ½µ÷ÊÔ¿ØÖÆÌ¨µÄ¿ÉÑ¡±êÖ¾¡£Ä¬ÈÏÎªÕæ¡£
-            "engineLogging": false, // ÊÇ·ñÓ¦½«Õï¶ÏÒýÇæÈÕÖ¾¼ÇÂ¼µ½µ÷ÊÔ¿ØÖÆÌ¨¡£Ä¬ÈÏÎª¼Ù¡£
-            "trace": false, // ÊÇ·ñ½«Õï¶ÏÊÊÅäÆ÷ÃüÁî¸ú×Ù¼ÇÂ¼µ½µ÷ÊÔ¿ØÖÆÌ¨¡£Ä¬ÈÏÎª¼Ù¡£
-            "traceResponse": false // ÊÇ·ñ½«Õï¶ÏÊÊÅäÆ÷ÃüÁîºÍÏìÓ¦¸ú×Ù¼ÇÂ¼µ½µ÷ÊÔ¿ØÖÆÌ¨¡£Ä¬ÈÏÎª¼Ù¡£
+        // ï¿½ï¿½ï¿½ï¿½ VS Code ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½
+        "name": "GDB Debug", // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ãµï¿½ï¿½ï¿½ï¿½Æ¡ï¿½
+        "preLaunchTask": "Compile", // ï¿½ï¿½ï¿½Ô»á»°ï¿½ï¿½Ê¼Ç°Òªï¿½ï¿½ï¿½Ðµï¿½ï¿½ï¿½ï¿½ï¿½
+        "type": "cppdbg", // ï¿½ï¿½ï¿½ï¿½ÒªÊ¹ï¿½ÃµÄ»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½ GDB ï¿½ï¿½ LLDB Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ cppdbg ï¿½ï¿½
+        "request": "launch", // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç¸ï¿½ï¿½Óµï¿½ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½Ðµï¿½Êµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ò¸½¼ï¿½ ( launch | attach ).
+        "program": "${fileDirname}/${fileBasenameNoExtension}.exe", // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ò¸½¼ÓµÄ¿ï¿½Ö´ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½
+        "externalConsole": true, // ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½Ê¾ï¿½â²¿ï¿½ï¿½ï¿½ï¿½Ì¨ï¿½ï¿½
+        "logging": { // ï¿½ï¿½ï¿½ï¿½È·ï¿½ï¿½Ó¦ï¿½Ã½ï¿½ï¿½ï¿½Ð©ï¿½ï¿½ï¿½Íµï¿½ï¿½ï¿½Ï¢ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½Ô¿ï¿½ï¿½ï¿½Ì¨ï¿½ï¿½
+            "exceptions": true, // ï¿½Ç·ï¿½Ó¦ï¿½ï¿½ï¿½ì³£ï¿½ï¿½Ï¢ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½Ô¿ï¿½ï¿½ï¿½Ì¨ï¿½ï¿½Ä¬ï¿½ï¿½Îªï¿½æ¡£
+            "moduleLoad": false, // ï¿½Ç·ï¿½Ó¦ï¿½ï¿½Ä£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½Ô¿ï¿½ï¿½ï¿½Ì¨ï¿½ï¿½Ä¬ï¿½ï¿½Îªï¿½æ¡£
+            "programOutput": true, // ï¿½Ç·ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½Ô¿ï¿½ï¿½ï¿½Ì¨ï¿½Ä¿ï¿½Ñ¡ï¿½ï¿½Ö¾ï¿½ï¿½Ä¬ï¿½ï¿½Îªï¿½æ¡£
+            "engineLogging": false, // ï¿½Ç·ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¾ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½Ô¿ï¿½ï¿½ï¿½Ì¨ï¿½ï¿½Ä¬ï¿½ï¿½Îªï¿½Ù¡ï¿½
+            "trace": false, // ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ù¼ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½Ô¿ï¿½ï¿½ï¿½Ì¨ï¿½ï¿½Ä¬ï¿½ï¿½Îªï¿½Ù¡ï¿½
+            "traceResponse": false // ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½Ù¼ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½Ô¿ï¿½ï¿½ï¿½Ì¨ï¿½ï¿½Ä¬ï¿½ï¿½Îªï¿½Ù¡ï¿½
         },
-        // ÅäÖÃÄ¿±êÓ¦ÓÃ³ÌÐò£º
-        "args": [], // ÉèÖÃµ÷ÊÔÊ±´«µÝ¸ø³ÌÐòµÄÃüÁîÐÐ²ÎÊý¡£
-        "cwd": "${workspaceFolder}", // ÉèÖÃµ÷ÊÔÆ÷Æô¶¯µÄÓ¦ÓÃ³ÌÐòµÄ¹¤×÷Ä¿Â¼¡£
-        "environment": [], // ÉèÖÃµ÷ÊÔÊ±Ìí¼Óµ½³ÌÐò»·¾³ÖÐµÄ»·¾³±äÁ¿£¬ÀýÈç: [ { "name": "squid", "value": "clam" } ]¡£
-        // ×Ô¶¨Òå GDB »òÕß LLDB£º
+        // ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½Ó¦ï¿½Ã³ï¿½ï¿½ï¿½
+        "args": [], // ï¿½ï¿½ï¿½Ãµï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½Ý¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð²ï¿½ï¿½ï¿½ï¿½ï¿½
+        "cwd": "${workspaceFolder}", // ï¿½ï¿½ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½Ã³ï¿½ï¿½ï¿½Ä¹ï¿½ï¿½ï¿½Ä¿Â¼ï¿½ï¿½
+        "environment": [], // ï¿½ï¿½ï¿½Ãµï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½Óµï¿½ï¿½ï¿½ï¿½ò»·¾ï¿½ï¿½ÐµÄ»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: [ { "name": "squid", "value": "clam" } ]ï¿½ï¿½
+        // ï¿½Ô¶ï¿½ï¿½ï¿½ GDB ï¿½ï¿½ï¿½ï¿½ LLDBï¿½ï¿½
         "windows": {
-            "MIMode": "gdb", // Ö¸¶¨ VS Code Á¬½ÓµÄµ÷ÊÔÆ÷£¬±ØÐëÎª gdb »òÕß lldb¡£
-            "miDebuggerPath": "D:/DevKit/mingw32/bin/gdb.exe" // µ÷ÊÔÆ÷µÄÂ·¾¶£¬ÐÞ¸ÄÎªÄãµÄ°²×°Â·¾¶
+            "MIMode": "gdb", // Ö¸ï¿½ï¿½ VS Code ï¿½ï¿½ï¿½ÓµÄµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îª gdb ï¿½ï¿½ï¿½ï¿½ lldbï¿½ï¿½
+            "miDebuggerPath": "D:/DevKit/mingw32/bin/gdb.exe" // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½Þ¸ï¿½Îªï¿½ï¿½Ä°ï¿½×°Â·ï¿½ï¿½
         },
-        "miDebuggerArgs": "", // ´«µÝ¸øµ÷ÊÔÆ÷µÄ¸½¼Ó²ÎÊý
-        "stopAtEntry": false, // ÉèÖÃµ÷ÊÔÆ÷ÊÇ·ñÍ£Ö¹ÔÚÄ¿±êµÄÈë¿Ú£¨¸½¼ÓÊ±ºöÂÔ£©¡£Ä¬ÈÏÖµÎª false¡£
-        "setupCommands": [{ // Ö´ÐÐÏÂÃæµÄÃüÁîÊý×éÒÔÉèÖÃ GDB »ò LLDB
+        "miDebuggerArgs": "", // ï¿½ï¿½ï¿½Ý¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¸ï¿½ï¿½Ó²ï¿½ï¿½ï¿½
+        "stopAtEntry": false, // ï¿½ï¿½ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½Í£Ö¹ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Ú£ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½Ô£ï¿½ï¿½ï¿½Ä¬ï¿½ï¿½ÖµÎª falseï¿½ï¿½
+        "setupCommands": [{ // Ö´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ GDB ï¿½ï¿½ LLDB
             "description": "Enable pretty-printing for gdb",
-            "text": "-enable-pretty-printing", // Êó±êÐüÍ£²é¿´±äÁ¿µÄÖµ£¬ÐèÒªÆôÓÃ pretty-printing ¡£
-            "ignoreFailures": true // ºöÂÔÊ§°ÜµÄÃüÁî£¬Ä¬ÈÏÎª false ¡£
+            "text": "-enable-pretty-printing", // ï¿½ï¿½ï¿½ï¿½ï¿½Í£ï¿½é¿´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ pretty-printing ï¿½ï¿½
+            "ignoreFailures": true // ï¿½ï¿½ï¿½ï¿½Ê§ï¿½Üµï¿½ï¿½ï¿½ï¿½î£¬Ä¬ï¿½ï¿½Îª false ï¿½ï¿½
         }]
     }]
 }
