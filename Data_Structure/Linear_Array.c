@@ -71,6 +71,7 @@ int Delete(int index, List *ptrL)
     return 0;
 }
 
+// 打印数组线性表
 void PrintList(List *ptrL)
 {
     
