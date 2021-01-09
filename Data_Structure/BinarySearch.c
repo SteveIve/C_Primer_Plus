@@ -11,13 +11,13 @@ int binarySearch(int value, int *arr, int length)
     int mid;
     // 中间索引
     // 是不是正中间其实无所谓，前一个后一个不影响
-    if (arr[left] > value || arr[right] < value)        // 如果左值已经比待查找值大，或者右值已经比待查找值小
+    if (arr[left] > value || arr[right] < value)            // 如果左值已经比待查找值大，或者右值已经比待查找值小
     {
-        return -1;                                      // 则直接跳出，不可能查到
+        return -1;                                          // 则直接跳出，不可能查到
     }
 
-    while (left <= right)           // 设置左索引一定要小于等于右索引
-    {                               // 如果左右索引相等时且中值不等于待查找值，则设置左值加一右值减一，这样就有跳出条件了
+    while (left <= right)                                   // 设置左索引一定要小于等于右索引
+    {                                                       // 如果左右索引相等时且中值不等于待查找值，则设置左值加一右值减一，这样就有跳出条件了
         
         
         mid = (left + right) / 2;                           // 否则设置好中值
