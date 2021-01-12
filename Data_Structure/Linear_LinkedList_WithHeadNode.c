@@ -105,21 +105,44 @@ List* Delete(int loc, List *list)
     List *findNth(int, List*);
     int getLength(List*);
 
-    if (loc < 1 || loc > getLength(list))
+    int length = getLength(list);
+
+    if (loc < 1 || loc > length)
     {
         printf("Î»Ðò·Ç·¨¡£\n");
+        return NULL;
     }
     else if (list->next == NULL)
     {
         printf("Á´±í¿Õ£¬É¾³ýÊ§°Ü¡£\n");
+        return NULL;
     }
-    else if (loc == 1)
+    else
     {
-        List *deletedNode = list->next;
-        list->next = deletedNode->next;
-        free(deletedNode);
+        
+        if (loc == 1)
+        {
+            List *deletedNode = list->next;
+            list->next = deletedNode->next;
+            return deletedNode;
+        }
+        
+        if (loc == length)
+        {
+            List *front = findNth(length-1, list);
+            List *deletedNode = front->next;
+            front->next = NULL;
+            return deletedNode;
+        }
+        else
+        {
+            List *last_node = findNth(loc-1, list);
+            List *deletedNode = last_node->next;
+            last_node->next = deletedNode->next;
+            return deletedNode;
+        }
     }
-    return list;
+    
 }
 
 void PrintList(List *list)
@@ -152,6 +175,33 @@ void PrintList(List *list)
     }
 }
 
+List *reverseList(List *list)
+{
+    int getLength(List*);
+    List *findNth(int, List*);
+    List *Delete(int, List*);
+    List *Insert(int, int, List*);
+
+    int length = getLength(list);
+    if (length == 1 || length == 0)
+    {
+        return list;
+    }
+    else
+    {
+        List *node;
+        List *first_node = list->next;
+        for(int i = 1; i <= length; i++)
+        {
+            node = Delete(i, list);
+            list = Insert(node->value, 1, list);
+        }
+        first_node->next = NULL;
+        return list;
+    } 
+}
+
+
 int main(void)
 {
     int getLength(List*);
@@ -161,6 +211,7 @@ int main(void)
     List *Delete(int, List*);
     void PrintList(List*);
     List *CreateList(void);
+    List *reverseList(List*);
 
     List *list = CreateList();
     
@@ -171,17 +222,28 @@ int main(void)
 
     PrintList(list);
 
-    list = Delete(1, list);
-    printf("%d\n", findValue(3, list)->value);
+    Delete(1, list);
+    PrintList(list);
+
+    printf("%d\n", (findValue(3, list))->value);
     PrintList(list);
 
     printf("%d\n", findNth(3, list)->value);
 
     while(list->next)
     {
-        list = Delete(1, list);
+        Delete(1, list);
     }
 
+    PrintList(list);
+
+    printf("\n\n");
+    for (int i = 1; i <= 10; i++)
+    {
+        list = Insert(i, i, list);
+    }
+    PrintList(list);
+    reverseList(list);
     PrintList(list);
 
     system("pause");
