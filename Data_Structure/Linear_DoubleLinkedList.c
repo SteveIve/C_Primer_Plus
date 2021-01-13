@@ -25,15 +25,16 @@ DList *CreateEmptyList(void)
     DNode *CreateNode(void);
 
     DList *list = (DList*)malloc(sizeof(DList));
-    list->head = CreateNode(void);
-    list->rear = NULL;
+    list->head = CreateNode();
+    list->rear = list->head;
     list->head->data = 980508;
+    list->length = 0;
     return list;
 }
 
 int isEmptyList(DList *list)
 {
-    return (list->rear);
+    return (!(list->length));
 }
 
 DNode *findNth(int loc, DList *list)
@@ -58,7 +59,12 @@ int findValue(int value, DList *list)
 {
     DNode *node = list->head->next;
     int count = 1;
-    while (node->data != value && node->next != NULL)
+    if (list->length == 0)
+    {
+        return 0;
+    }
+    
+    while (node != NULL && node->data != value)     // 两个条件颠倒会报错..
     {
         node = node->next;
         count++;
@@ -70,7 +76,7 @@ int findValue(int value, DList *list)
     else
     {
         printf("未找到指定值。\n");
-        return NULL;
+        return 0;
     }
 }
 
@@ -85,7 +91,7 @@ DList *Insert(int loc, int value, DList *list)
     }
     else
     {
-        if (loc == length+1)
+        if (loc == list->length+1)
         {
             DNode *newNode = CreateNode();
             newNode->data = value;
@@ -139,7 +145,7 @@ DList *DeleteNode(int loc, DList *list)
 
 void PrintList(DList *list)
 {
-    DNode *node = list->head;
+    DNode *node = list->head->next;
     if (!node)
     {
         printf("链表空。\n");
@@ -159,5 +165,53 @@ void PrintList(DList *list)
                 printf("\n");
             }
         }
+        else
+        {
+            printf("\n");
+        }
+        node = node->next;
     }
+}
+
+int main(void)
+{
+    DNode *CreateNode(void);
+    DList *CreateEmptyList(void);
+    int isEmptyList(DList*);
+    DNode *findNth(int, DList*);
+    int findValue(int, DList*);
+    DList *Insert(int, int, DList*);
+    DList *DeleteNode(int, DList*);
+    void PrintList(DList*);
+
+    DList *list = CreateEmptyList();
+
+    for (int i = 1; i <= 10; i++)
+    {
+        list = Insert(i, i, list);
+    }
+    PrintList(list);
+
+    printf("第8个值为%d\n", findNth(8, list)->data);
+    
+    int loc = findValue(10, list);
+    if(loc)
+    {
+        printf("10位于第%d个\n", loc);
+    }
+
+    list = Insert(11, 11, list);
+    PrintList(list);
+
+    list = DeleteNode(11, list);
+    PrintList(list);
+
+    while (!isEmptyList(list))
+    {
+        DeleteNode(1, list);
+    }
+    PrintList(list);
+
+    system("pause");
+    return 0;
 }
