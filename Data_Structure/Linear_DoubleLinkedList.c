@@ -76,8 +76,64 @@ int findValue(int value, DList *list)
 
 DList *Insert(int loc, int value, DList *list)
 {
+    DNode *CreateNode(void);
+    DNode *findNth(int, DList*);
+
     if (loc <1 || loc > list->length+1)
     {
-        printf("")
+        printf("插入位置非法，插入失败。\n");
     }
+    else
+    {
+        if (loc == length+1)
+        {
+            DNode *newNode = CreateNode();
+            newNode->data = value;
+            list->rear->next = newNode;
+            newNode->prior = list->rear;
+            list->rear = newNode;
+        }
+        else
+        {
+            DNode *orig = findNth(loc, list);
+            DNode *newNode = CreateNode();
+            newNode->data = value;
+            newNode->prior = orig->prior;
+            newNode->next = orig;
+            orig->prior->next = newNode;
+            orig->prior = newNode;
+        }
+        list->length++;
+    }
+    return list;
 }
+
+DList *DeleteNode(int loc, DList *list)
+{
+    DNode *findNth(int, DList*);
+
+    if (loc < 1 || loc > list->length)
+    {
+        printf("删除位序非法。\n");
+    }
+    else
+    {
+        if (loc == list->length)
+        {
+            DNode *deletedNode = list->rear;
+            deletedNode->prior->next = NULL;
+            list->rear = deletedNode->prior;
+            free(deletedNode);
+        }
+        else
+        {
+            DNode *deletedNode = findNth(loc, list);
+            deletedNode->next->prior = deletedNode->prior;
+            deletedNode->prior->next = deletedNode->next;
+            free(deletedNode);
+        }
+        list->length--;
+    }
+    return list;
+}
+
