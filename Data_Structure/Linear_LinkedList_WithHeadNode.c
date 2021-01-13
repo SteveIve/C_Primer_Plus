@@ -164,7 +164,7 @@ void PrintList(List *list)
             printf(", ");
             if (counter%10 == 0)
             {
-                printf(" ");
+                printf("\n");
             }
         }
         else

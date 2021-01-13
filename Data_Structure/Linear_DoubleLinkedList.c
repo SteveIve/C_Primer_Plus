@@ -137,3 +137,27 @@ DList *DeleteNode(int loc, DList *list)
     return list;
 }
 
+void PrintList(DList *list)
+{
+    DNode *node = list->head;
+    if (!node)
+    {
+        printf("Á´±í¿Õ¡£\n");
+        return;
+    }
+
+    int counter = 0;
+    while (node)
+    {
+        printf("%d", node->data);
+        counter++;
+        if (node->next)
+        {
+            printf(", ");
+            if (counter % 10 == 0)
+            {
+                printf("\n");
+            }
+        }
+    }
+}
