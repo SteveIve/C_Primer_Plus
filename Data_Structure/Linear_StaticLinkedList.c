@@ -28,29 +28,29 @@ SList CreateSList(void)
     return slist;
 }
 
-SNode findAvailableNode(SList slist)
+int findAvailableNodeIndex(SList slist)
 {
-    int i = 0;
+    int i = 1;
     while (i < maxsize + 1 && slist[i].index != available)
     {
         i++;
     }
     if (i == maxsize + 1)
     {
-        printf("Full List.\n");
-        return NULL;
+        printf("未找到可用空间\n");
+        return 0;
     }
     else
     {
-        return slist[i];
+        return i;
     }
 }
 
 int isFull(SList slist)
 {
-    SNode findAvailableNode(SList);
+    int findAvailableNodeIndex(SList);
 
-    if (findAvailableNode(slist))
+    if (findAvailableNodeIndex(slist))
     {
         return 0;
     }
@@ -73,7 +73,114 @@ int isEmpty(SList slist)
     return 1;
 }
 
-SNode findNth(SList slist)
+int getLength(SList slist)
+{
+    int isEmpty(SList);
+    int isFull(SList);
+
+    if (isEmpty(slist))
+    {
+        return 0;
+    }
+    else if (isFull(slist))
+    {
+        return maxsize;
+    }
+    else
+    {
+        SNode node = slist[slist[0].index];
+        int count = 1;
+        while (node.index != last_node)
+        {
+            count++;
+            node = slist[node.index];
+        }
+        return count;
+    }
+}
+
+int findNth(int loc, SList slist)
+{
+    int getLength(SList);
+
+    if (loc < 1 || loc > maxsize)
+    {
+        printf("查找位序非法。\n");
+        return 0;
+    }
+    else
+    {
+        int length = getLength(slist);
+        if (loc > length)
+        {
+            printf("查找位置超出链表长度。\n");
+            return 0;
+        }
+        else
+        {
+            SNode node = slist[slist[0].index];
+            int i = 1;
+            while (i < loc)
+            {
+                node = slist[node.index];
+            }
+            return node.index;
+        }
+    }
+}
+
+int Insert(int loc, int value, SList slist)
+{
+    int isFull(SList);
+    int findNth(int, SList);
+    int findAvailableNodeIndex(SList);
+    int getLength(SList);
+
+    if (isFull(slist))                                                  // 表满时
+    {
+        printf("链表满，插入失败。\n");
+        return 0;
+    }
+    else if (loc < 1 || loc > maxsize)                                  // 表未满但插入位置非法
+    {
+        printf("插入位置非法。\n");
+        return 0;
+    }
+    else
+    {
+        int length = getLength(slist);
+        int index = findAvailableNodeIndex(slist);
+        if (loc > length + 1)                                           // 超出链表长度时
+        {
+            printf("插入位置超出链表长度。\n");
+            return 0;
+        }
+        else if (loc == 1)                                              // 插入头部时
+        {
+            slist[index].value = value;
+            slist[index].index = findNth(1, slist);
+            slist[0].index = index;
+            return 1;
+        }
+        else if (loc == length + 1)                                     // 插入尾部时
+        {
+            int lastIndex = findNth(length, slist);
+            slist[index].value = value;
+            slist[lastIndex].index = index;
+            return 1;
+        }
+        else                                                            // 插入普通位置时
+        {
+            int lastIndex = findNth(loc-1, slist), nextIndex = findNth(loc, slist);
+            slist[index].value = value;
+            slist[lastIndex].index = index;
+            slist[index].index = nextIndex;
+            return 1;
+        }
+    }
+}
+
+int Delete(int loc, SList)
 {
     
 }
