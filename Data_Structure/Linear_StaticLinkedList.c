@@ -7,33 +7,31 @@
 typedef struct StaticNode
 {
     int value;
-    int index;
-}SNode, SList[maxsize + 1];
-
-SList CreateSList(void)
+    int index;                                      // the index can be regarded as a "pointer"
+}SNode, SList[maxsize + 1];                         // define a structure in which the data and the next element's index are saved
+                                                    // nice :)
+void InitiateSList(SList slist)
 {
-    SList slist;
     for (int i = 0; i < maxsize + 1; i++)
     {
         if (i == 0)
         {
-            slist[i].index = last_node;        // -1 means this node is the last node
-            slist[i].value = 980508     // head node has no meaningful value
+            slist[i].index = last_node;             // -1 means this node is the last node
+            slist[i].value = 123456;                // head node has no meaningful value
         }
         else
         {
-            slist[i].index = available;        // -2 means this node is available (empty)
+            slist[i].index = available;             // -2 means this node is available (empty)
         }
     }
-    return slist;
 }
 
 int findAvailableNodeIndex(SList slist)
 {
-    int i = 1;
+    int i = 1;                                      // the index started with 1, cuz no.0 is the head node
     while (i < maxsize + 1 && slist[i].index != available)
     {
-        i++;
+        i++;                                        // if the element.index is -2, it means this space is available
     }
     if (i == maxsize + 1)
     {
@@ -50,11 +48,11 @@ int isFull(SList slist)
 {
     int findAvailableNodeIndex(SList);
 
-    if (findAvailableNodeIndex(slist))
+    if (findAvailableNodeIndex(slist))              // if found any available space, the array is no full
     {
         return 0;
     }
-    else
+    else                                            // other wise it is full
     {
         return 1;
     }
@@ -63,12 +61,13 @@ int isFull(SList slist)
 int isEmpty(SList slist)
 {
     int i = 0;
-    while (i < maxsize + 1)
+    while (i < maxsize + 1)                         
     {
-        if (slist[i].index > 0)
+        if (slist[i].index > 0)                     // if any index is positive, it means there must be some element in the array
         {
             return 0;
         }
+        i++;
     }
     return 1;
 }
@@ -88,12 +87,12 @@ int getLength(SList slist)
     }
     else
     {
-        SNode node = slist[slist[0].index];
+        int node = slist[0].index;
         int count = 1;
-        while (node.index != last_node)
+        while (slist[node].index != last_node)
         {
             count++;
-            node = slist[node.index];
+            node = slist[node].index;
         }
         return count;
     }
@@ -118,13 +117,14 @@ int findNth(int loc, SList slist)
         }
         else
         {
-            SNode node = slist[slist[0].index];
+            int node = slist[0].index;
             int i = 1;
-            while (i < loc)
+            while (i < loc)                             // 不能为i<=loc，否则所有的返回值都是-1
             {
-                node = slist[node.index];
+                node = slist[node].index;
+                i++;
             }
-            return node.index;
+            return node;
         }
     }
 }
@@ -150,6 +150,13 @@ int Insert(int loc, int value, SList slist)
     {
         int length = getLength(slist);
         int index = findAvailableNodeIndex(slist);
+        if (length == 0 && loc == 1)                                    // 当表空且插入位置为第一时
+        {
+            slist[index].value = value;
+            slist[0].index = index;
+            slist[index].index = last_node;
+            return 1;
+        }
         if (loc > length + 1)                                           // 超出链表长度时
         {
             printf("插入位置超出链表长度。\n");
@@ -164,10 +171,10 @@ int Insert(int loc, int value, SList slist)
         }
         else if (loc == length + 1)                                     // 插入尾部时
         {
-            int lastIndex = findNth(length, slist);
+            int priorIndex = findNth(loc-1, slist);
             slist[index].value = value;
-            slist[lastIndex].index = index;
             slist[index].index = last_node;
+            slist[priorIndex].index = index;
             return 1;
         }
         else                                                            // 插入普通位置时
@@ -229,4 +236,55 @@ int Delete(int loc, SList slist)
             }
         }
     }
+}
+
+void PrintList(SList slist)
+{
+    printf("value:\t\tnext:\t\tindex:\n");
+    for (int i = 0; i < maxsize + 1; i++)
+    {
+        printf("%5d\t\t%5d\t\t%5d\n", slist[i].value, (slist[i].index == -2 ? 0 : slist[i].index), i);
+    }
+    return;
+}
+
+int main(void)
+{
+    // 以下为测试内容
+    void InitiateSList(SList);
+    int findAvailableNodeIndex(SList);
+    int isFull(SList);
+    int isEmpty(SList);
+    int getLength(SList);
+    int findNth(int, SList);
+    int Insert(int, int, SList);
+    int Delete(int, SList);
+    void PrintList(SList);
+
+    SList slist;
+    InitiateSList(slist);
+    for (int i = 1; i <= maxsize; i++)
+    {
+        Insert(i, i, slist);
+    }
+
+    Insert(11, 0, slist);
+
+    Delete(3, slist);
+
+    Insert(10, 0, slist);
+
+    while (!isEmpty(slist))
+    {
+        Delete(1, slist);
+    }
+
+    Insert(1, 999, slist);
+
+    PrintList(slist);
+
+
+
+    system("pause");
+    return 0;
 }
