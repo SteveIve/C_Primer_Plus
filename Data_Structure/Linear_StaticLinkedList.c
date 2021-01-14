@@ -167,6 +167,7 @@ int Insert(int loc, int value, SList slist)
             int lastIndex = findNth(length, slist);
             slist[index].value = value;
             slist[lastIndex].index = index;
+            slist[index].index = last_node;
             return 1;
         }
         else                                                            // 插入普通位置时
@@ -180,7 +181,52 @@ int Insert(int loc, int value, SList slist)
     }
 }
 
-int Delete(int loc, SList)
+int Delete(int loc, SList slist)
 {
-    
+    int getLength(SList);
+    int findNth(int, SList);
+
+    int length = getLength(slist);
+
+    if (loc < 1 || loc > maxsize)
+    {
+        printf("删除位序不合法。\n");
+        return 0;
+    }
+    else
+    {
+        if (loc > length)
+        {
+            printf("删除位序超出链表长度。\n");
+            return 0;
+        }
+        else
+        {
+            if (loc == 1)
+            {
+                int secIndex = findNth(2, slist);
+                int firIndex = slist[0].index;
+                slist[0].index = secIndex;
+                slist[firIndex].index = available;
+                return firIndex;
+            }
+            else if (loc == length)
+            {
+                int priorIndex = findNth(length-1, slist);
+                int deletedIndex = slist[priorIndex].index;
+                slist[priorIndex].index = last_node;
+                slist[deletedIndex].index = available;
+                return deletedIndex;
+            }
+            else
+            {
+                int priorIndex = findNth(loc-1, slist);
+                int deletedIndex = slist[priorIndex].index;
+                int laterIndex = slist[deletedIndex].index;
+                slist[priorIndex].index = laterIndex;
+                slist[deletedIndex].index = available;
+                return deletedIndex;
+            }
+        }
+    }
 }
