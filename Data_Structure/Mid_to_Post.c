@@ -16,7 +16,33 @@ Mid_List *CreateEmptyMidList(void)
     return NULL;
 }
 
-Mid_List *getInput_MidList(Mid_List *mid_list, CharNode *last_node)
+CharNode *getLastNode(Mid_List *mid_list)
 {
+    CharNode *node = mid_list;
+    while (node->next)
+    {
+        node = node->next;
+    }
+    return node;
+}
+
+void Insert(CharNode *last_node, char ch)
+{
+    CharNode *new_node = (CharNode*)malloc(sizeof(CharNode));
+    new_node->ch = ch;
+    new_node->next = NULL;
+    last_node->next = new_node;
+    return;    
+}
+
+Mid_List *getInput_MidList(Mid_List *mid_list)
+{
+    CharNode *getLastNode(Mid_List*);
     
+    CharNode *last_node = getLastNode(mid_list);
+    int ch = getchar();
+    while (ch != '\n')
+    {
+        Insert(last_node, ch);
+    }
 }
