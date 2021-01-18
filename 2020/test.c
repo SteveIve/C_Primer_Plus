@@ -28,7 +28,7 @@ int main(void)
 {
     MK *memorry_killer = malloc(sizeof(MK));
     int i = 1;
-    while (i)
+    while (1)
     {
         i = insert(memorry_killer);
     }
