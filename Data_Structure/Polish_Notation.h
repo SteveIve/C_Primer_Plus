@@ -193,3 +193,43 @@ int getLength(List *list)
     return length;
 }
 
+Node *findNth(int loc, List *list)
+{
+    int length = getLength(list);
+    Node *node = list;
+
+    if (loc < 1 || loc > length)
+    {
+        return NULL;
+    }
+
+    for (int i = 0; i < loc; i++)
+    {
+        node = node->next;
+    }
+
+    return node;
+}
+
+// 删除指定位序的元素，并返回元素值
+char Delete(int loc, List *list)
+{
+    Node *node = findNth(loc, list);
+    char returnValue = node->ch;
+    free(node);
+    return returnValue;
+}
+
+// 反转链表
+void Reverse(List *list)
+{
+    int length = getLength(list);
+    Node *node = list->next;
+    if (length <= 1)
+        return;
+    for (int i = 1; i <= length; i++)
+    {
+        PushIn(Delete(i, list), list);
+    }
+    return;
+}
