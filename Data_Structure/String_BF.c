@@ -23,8 +23,8 @@ int StringCompare(SString *s1, SString *s2)
 int main(void)
 {
     SString *s1, *s2;
-    &s1->chars[1] = "a brother";
-    &s2->chars[2] = "a sister";
+    scanf("%s", s1->chars[1]);
+    scanf("%s", s2->chars[1]);
 
     printf("%d", StringCompare(s1, s2));
 
